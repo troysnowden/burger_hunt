@@ -9,4 +9,10 @@ class ArticlesController < ApplicationController
   def room2
     @other_name = "Cat"
   end
+
+  def journey_end
+
+    redirect_to ("/")
+
+  end
 end
