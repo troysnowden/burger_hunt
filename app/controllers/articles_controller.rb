@@ -5,4 +5,8 @@ class ArticlesController < ApplicationController
   def room1
     @name = "Dog"
   end
+
+  def room2
+    @other_name = "Cat"
+  end
 end

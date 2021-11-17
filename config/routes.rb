@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   
   get "/articles", to: "articles#index"
   get "/articles/room1", to: "articles#room1"
+  get "/articles/room2", to: "articles#room2"
 end
