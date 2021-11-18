@@ -7,13 +7,6 @@
 </div>
 
 <%= image_tag "drive-thru.png", class: "landing-page-img" %>
-<%= image_tag "neon-arrow.png", class: "landing-page-img" %>
-
-<form method="get" action="articles/room1">
-  <input type="submit" value="Go to room 1">
-</form>
-<br>
-
-<form method="get" action="articles/room2">
-  <input type="submit" value="Go to room 2">
-</form>
+<%= link_to '/articles/register', class: "landing-page-img" do %>
+  <%= image_tag "neon-arrow.png", alt: "Click here to start game", class: "landing-page-img"%>
+<% end %>

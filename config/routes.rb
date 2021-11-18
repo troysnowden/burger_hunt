@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
-  root "articles#index"
+  root "game#index"
   
-  get "/articles", to: "articles#index"
+  get "/game", to: "game#index"
+  get "/game/register", to: "game#register"
+  post "/game/register", to: "game#register_name"
+  get "/game/home", to: "game#home"
+
   get "/articles/room1", to: "articles#room1"
   get "/articles/room2", to: "articles#room2"
   get "/articles/game-over", to: "articles#game_over"
