@@ -7,7 +7,7 @@ class ArticlesController < ApplicationController
   end
 
   def room2
-    @other_name = "Cat"
+    @name = "Cat"
   end
 
   def journey_end
