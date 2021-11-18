@@ -12,7 +12,7 @@ class ArticlesController < ApplicationController
 
   def journey_end
 
-    redirect_to ("/")
+    redirect_to ("/winner")
 
   end
 end
