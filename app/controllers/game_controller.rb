@@ -10,4 +10,6 @@ class GameController < ApplicationController
   def home
     @name = session[:user_name]
   end
+
+
 end
