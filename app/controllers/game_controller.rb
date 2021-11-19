@@ -3,7 +3,7 @@ class GameController < ApplicationController
   end
 
   def register
-    
+    @user = User.new
   end
 
   def register_name
