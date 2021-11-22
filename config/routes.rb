@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   
   get "/game", to: "game#index"
   get "/game/home", to: "game#home"
-  get "/game/right", to: "game#right"
-  get "/game/left", to: "game#left"
+  get "/game/page3", to: "game#page3"
+  post "/game/puzzle-answer", to: "game#puzzle_check"
 
   get "/register", to: "users#register"
   post "/register", to: "users#create"

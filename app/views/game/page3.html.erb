@@ -1,0 +1,9 @@
+<div class="story-text">
+  Puzzle Text
+</div>
+<%= form_tag '/game/puzzle-answer', :class => 'puzzle-form', :id => 'puzzle-form' do %>
+  <%= label_tag :puzzle_answer%><br>
+  <%= text_field_tag :puzzle_answer %><br>
+  <%= submit_tag "Submit Answer"%>
+<%end%>
+
