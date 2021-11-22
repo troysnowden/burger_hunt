@@ -10,6 +10,7 @@
   padding: 3px 20px;
   /* text-align: right; */
   color: white;
+  min-height: 80px;
 }
 
 .nav-space-between {
