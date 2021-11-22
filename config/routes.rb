@@ -12,9 +12,4 @@ Rails.application.routes.draw do
   post "/login", to: "users#authenticate"
   get "/logout", to: "users#logout"
 
-  get "/articles/room1", to: "articles#room1"
-  get "/articles/room2", to: "articles#room2"
-  get "/articles/game-over", to: "articles#game_over"
-  get "/articles/journey-end", to: "articles#winner"
-
 end
