@@ -23,7 +23,7 @@ class GameController < ApplicationController
       session[:puzzle_answer] = nil
       # flash message to say correct answer maybe?
       session[:correct_answer_found] = true
-      edirect_to "/game/page3"
+      redirect_to "/game/page3"
     else
       session[:correct_answer_found] = nil
       session[:puzzle_attempts] += 1
