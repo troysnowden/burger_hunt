@@ -44,6 +44,12 @@
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+a.button {
+  padding: 10%;
+  color: #ffffff;
+  text-decoration: none;
+}
+
 body {
   min-height: 100vh;
   font-family: canada-type-gibson, sans-serif;
