@@ -8,9 +8,8 @@ RSpec.describe GameController, type: :controller do
     end
   end
 
-  describe "Get /page-1" do
+  describe "GET game/page-1" do
     it "responds with 200" do
-      get :page_1
       expect(response).to have_http_status(200)
     end
   end
