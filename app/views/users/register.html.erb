@@ -1,9 +1,3 @@
-<%# form_with url: "/game/register", method: :post, :id => "name-form" do |form|%>
-  <%# form.label :name, "Enter your name:"%>
-  <%# form.text_field :name %>
-  <br>
-  <%# form.submit "Begin..." %>
-<%# end %>
 
 <%= form_for @user, url: "/register", :html => {'id' => 'name-form'} do |f|%>
   <%= f.label :username%><br>
