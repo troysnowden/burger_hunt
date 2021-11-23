@@ -10,10 +10,9 @@ RSpec.describe UsersController, type: :controller do
 
   describe "POST /register" do
     it "creates a user" do
-      post :create, params: { user: { username: "jsmith", full_name: "John Smith", password: "pass" } }
+      post :create, params: { user: { username: "jsmith", password: "pass" } }
       expect(response).to redirect_to("/game/page-1")
       expect(User.find_by(username: "jsmith").class).to eq(User)
-      expect(User.find_by(username: "jsmith").full_name).to eq("John Smith")
     end
   end
 
@@ -26,7 +25,7 @@ RSpec.describe UsersController, type: :controller do
 
   describe "POST /login" do
     it "responds with 200" do
-      post :create, params: { user: { username: "jsmith", full_name: "John Smith", password: "pass" } }
+      post :create, params: { user: { username: "jsmith", password: "pass" } }
       post :authenticate, params: { username: "jsmith", password: "pass" }
       expect(response).to redirect_to("/game/home")
     end

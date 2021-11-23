@@ -25,13 +25,13 @@ class UsersController < ApplicationController
   private 
 
   def user_params
-    params.require(:user).permit(:username, :full_name, :password, :profile_photo)
+    params.require(:user).permit(:username, :password)
   end
 
   def redirect_after_login(user)
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to '/game/home'
+      redirect_to '/game/page-1'
     else
       redirect_to '/login'
     end

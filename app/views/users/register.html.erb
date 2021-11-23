@@ -2,8 +2,6 @@
 <%= form_for @user, url: "/register", :html => {'id' => 'name-form'} do |f|%>
   <%= f.label :username%><br>
   <%= f.text_field :username%><br>
-  <%= f.label :full_name%><br>
-  <%= f.text_field :full_name%><br>
   <%= f.label :password%><br>
   <%= f.password_field :password%><br>
   <br>
