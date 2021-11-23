@@ -5,18 +5,24 @@
   </p>
   <p>
   Feeling good about yourself you take some time to peer into the shop windows. 
-  Everything is shut but who doesn’t enjoy a bit of evening window shopping? 
+  Everything is closed, but who doesn’t enjoy a bit of evening window shopping? 
   The further you progress down this narrow street you notice the street lights are no longer working 
   and you find yourself caught in darkness. 
   </p>
   <p>
   Should you go left or right? If only you had something to help light up your pathway... (***IMAGE OF CARROT?)
   </p>
-  <p>
-  HINT: Have you eaten your carrots today? (***TEXT APPEARS - only after the player has clicked left, visited page 6, and come back.)
-  </p>
 
+    <div class="alert">
+      <% if @page6_visited %>
+        <p>HINT: Have you eaten your carrots today?</p>
+      <% end %>
+    </div>
+    
   <%= link_to "Left (wrong)", '/game/page6', class: "wrong-correct-button" %>
-  <%= link_to "Right (correct)", '/game/win', class: "wrong-correct-button" %>
+
+  <% if @page6_visited %>
+    <%= link_to "Right (correct)", '/game/win', class: "wrong-correct-button" %>
+  <% end %>
 
 </div>

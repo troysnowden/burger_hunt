@@ -5,6 +5,8 @@ class GameController < ApplicationController
   def page2
     session[:correct_answer_found] = nil
     session[:puzzle_attempts] = 0
+    session[:page6_visited] = nil
+    session[:carrots_eaten] = 0
   end
 
   def page3
@@ -23,16 +25,22 @@ class GameController < ApplicationController
 
   def page5
     session[:bike_text] = nil
-    session[:page_6_deadend_visited] = nil
-      # This probably needs to be set to nil in page 3 and page 4 instead?
-      # otherwise would reset to nil when page 5 was landed on after being at page 6?
-    session[:carrot_eaten] = 0
+
+      if session[:page6_visited] == true
+        @page6_visited = true
+      end
+
   end
-  
+  # Need to add in method about carrots_eaten
+
+
   def page6
+    session[:page6_visited] = true
+
     if session[:bike_text] == true
       @bike_text_clicked = true
     end
+
   end
 
   def page6_bike
