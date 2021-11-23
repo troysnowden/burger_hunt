@@ -11,9 +11,12 @@ Nothing else here seems to be worth your time…
  What do you do?
 </p>
 
-<span>
-  <%= link_to "Question why a bicycle has 3 wheels…", '/game/page3', class: "button" %>
+<% if @bike_text_clicked %>
+  <p class = 'narrator-text'> The bike is the definition of being a third wheel. </p>
   <%= link_to "Go back", '/game/page4', class: "button" %>
-</span>
+<% else %>
+  <%= link_to "Question why a bicycle has 3 wheels…", '/game/page6-bike', class: "button" %>
+  <%= link_to "Go back", '/game/page4', class: "button" %>
+<% end %>
 
 </div>

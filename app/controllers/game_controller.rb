@@ -5,6 +5,7 @@ class GameController < ApplicationController
   def page2
     session[:correct_answer_found] = nil
     session[:puzzle_attempts] = 0
+    session[:bike_text] = nil
   end
 
   def page3
@@ -33,6 +34,17 @@ class GameController < ApplicationController
     redirect_to session[:current_page]
   end
 
+  def page6
+    if session[:bike_text] == true
+      @bike_text_clicked = true
+    end
+  end
+
+  def page6_bike
+    session[:bike_text] = true
+    redirect_to '/game/page6'
+  end
+
   private
 
   def puzzle_input_correct(input, answer)
@@ -50,6 +62,5 @@ class GameController < ApplicationController
     end
     render "game/puzzle_template"
   end
-
 
 end

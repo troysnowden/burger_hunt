@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   get "/game/page5", to: "game#page5"
   get "/game/page6", to: "game#page6"
+  get "/game/page6-bike", to: "game#page6_bike"
 
   get "/register", to: "users#register"
   post "/register", to: "users#create"
