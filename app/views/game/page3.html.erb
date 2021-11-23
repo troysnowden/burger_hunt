@@ -1,24 +1,28 @@
 <div class="story-text">
   <p>You run into your old pal Rufus. This guy loves to talk and you really don't have time for his
-nonsense right now. After exchanging pleasantries for what felt like an eternity you try to squeeze
- past him but he not so subtly blocks your way.</p>
+  nonsense right now. After exchanging pleasantries for what felt like an eternity you try to squeeze
+  past him but he not so subtly blocks your way.</p>
 
-<p>'I'll let you on your way if you can solve this riddle'</p>
+  <p>'I'll let you on your way if you can solve this riddle'</p>
 
-<p>Reluctantly you agree.</p>
-  <p>'<%= @puzzle_text %>'</p>
+  <p>Reluctantly you agree.</p>
+    <p>'<%= @puzzle_text %>'</p>
+  <% flash.each do |type, msg| %>
+    <div class ="alert">
+      <%= msg %>
+    </div>
+  <% end %>
+  <%= form_tag '/game/puzzle-answer', :class => 'puzzle-form', :id => 'puzzle-form' do %>
+    <%= label_tag :puzzle_answer%><br>
+    <%= text_field_tag :puzzle_answer_input %><br>
+    <%= submit_tag "Submit Answer"%>
+  <%end%>
+
+  <% if @correct_answer_found %>
+    <p>'I'll let you on your way, but be warned that the path ahead is a treacherous one'</p>
+    <p>You wonder what he's talking about, because the path ahead has been rated 5th in the 'Top 20 most pleasant walks in [CITY-NAME]'.
+    Actually, Rufus is probably right, now that you think about it.</p>
+    <p>You decide to carry on anyway.</p>
+  <%= link_to "Move", '/game/page5', class: "button" %>
+  <% end %>
 </div>
-<% flash.each do |type, msg| %>
-  <div class ="alert">
-    <%= msg %>
-  </div>
-<% end %>
-<%= form_tag '/game/puzzle-answer', :class => 'puzzle-form', :id => 'puzzle-form' do %>
-  <%= label_tag :puzzle_answer%><br>
-  <%= text_field_tag :puzzle_answer_input %><br>
-  <%= submit_tag "Submit Answer"%>
-<%end%>
-
-<% if @correct_answer_found %>
-<%= link_to "Move", '/game/page5', class: "button" %>
-<% end %>
