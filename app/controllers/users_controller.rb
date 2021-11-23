@@ -31,7 +31,7 @@ class UsersController < ApplicationController
   def redirect_after_login(user)
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to '/game/page-1'
+      redirect_to '/game/home'
     else
       redirect_to '/login'
     end
