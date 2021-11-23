@@ -1,0 +1,17 @@
+RSpec.feature "Register", type: :feature do
+
+  scenario "Player can click on arrow to register" do
+    visit "/"
+    expect(page).to have_css('img', id: "neon-arrow-image")
+    # click_link 
+    # expect(page).to have_current_path '/game/register'
+  end
+
+  scenario "Player can register to play game" do
+    visit "/register"
+    fill_in "user[username]", with: "user1"
+    fill_in "user[password]", with: "test"
+    click_button "Create User"
+  end
+
+end
