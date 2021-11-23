@@ -5,7 +5,7 @@ RSpec.feature "Player can register: ", type: :feature do
     expect(page).to have_content 'Username'
     expect(page).to have_button 'Create User'
     click_button 'Create User'
-    expect(page).to have_current_path '/game/page-1'
+    expect(page).to have_current_path '/game/page1'
   end
 
 end

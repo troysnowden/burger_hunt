@@ -32,3 +32,9 @@
   background-color: #fefefe;
   color: #e32424;
 }
+
+.left-button {
+  background-color: #e32424;
+  padding: 1em 3em;
+  margin-left: 450px;
+}
