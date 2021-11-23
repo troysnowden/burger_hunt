@@ -1,0 +1,18 @@
+
+<div class="navigation-bar nav-space-between">
+
+  <div class="nav-section">
+    <%= button_to "How to play", '/how-to-play', method: :get%>
+  </div>
+
+  <% if !current_page?('/') %>
+    <div class="nav-section">
+      <h3>BURGER HUNT</h3>
+    </div>
+  <% end %>
+
+  <div class="nav-section">
+    <%= button_to "Log in", '/login', method: :get%>
+  </div>
+  
+</div>
