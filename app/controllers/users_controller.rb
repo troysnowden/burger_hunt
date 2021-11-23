@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def create
     session[:user_id] = User.create(user_params).id
-    redirect_to "/game/home"
+    redirect_to "/game/page-1"
   end
 
   def login

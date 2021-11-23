@@ -11,7 +11,7 @@ RSpec.describe UsersController, type: :controller do
   describe "POST /register" do
     it "creates a user" do
       post :create, params: { user: { username: "jsmith", full_name: "John Smith", password: "pass" } }
-      expect(response).to redirect_to("/game/home")
+      expect(response).to redirect_to("/game/page-1")
       expect(User.find_by(username: "jsmith").class).to eq(User)
       expect(User.find_by(username: "jsmith").full_name).to eq("John Smith")
     end
