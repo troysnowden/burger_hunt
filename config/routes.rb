@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   post "/game/puzzle-answer", to: "game#puzzle_check"
 
   get "/game/page5", to: "game#page5"
+  get "/game/page6", to: "game#page6"
 
   get "/register", to: "users#register"
   post "/register", to: "users#create"
