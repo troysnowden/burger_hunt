@@ -21,6 +21,21 @@ class GameController < ApplicationController
     "Hint! Something or other here")
   end
 
+  def page5
+    session[:bike_text] = nil
+  end
+
+  def page6
+    if session[:bike_text] == true
+      @bike_text_clicked = true
+    end
+  end
+
+  def page6_bike
+    session[:bike_text] = true
+    redirect_to '/game/page6'
+  end
+
   def puzzle_check
     if puzzle_input_correct(params[:puzzle_answer_input], session[:puzzle_answer])
       session[:puzzle_answer] = nil
@@ -50,6 +65,5 @@ class GameController < ApplicationController
     end
     render "game/puzzle_template"
   end
-
 
 end
