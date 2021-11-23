@@ -28,21 +28,31 @@ class GameController < ApplicationController
     if session[:page6_visited] == true
       @page6_visited = true
     end
-  end
 
-  def page5_carrots
     if session[:carrots_eaten] == 3
       @eaten_enough_carrots = true
     end
+
   end
+
+  def page5_eat_carrot
+    # carrot button is clicked
+    # later on, include pocket functionality here?
+    session[:carrots_eaten] += 1
+    redirect_to '/game/page5'
+  end
+
+  # def page5_enough_carrots
+  #   if session[:carrots_eaten] == 3
+  #     @eaten_enough_carrots = true
+  #   end
+  # end
 
   def page6
     session[:page6_visited] = true
-
     if session[:bike_text] == true
       @bike_text_clicked = true
     end
-
   end
 
   def page6_bike
@@ -62,11 +72,6 @@ class GameController < ApplicationController
     redirect_to session[:current_page]
   end
 
-
-
-
-
-
   private
 
   def puzzle_input_correct(input, answer)
@@ -83,11 +88,6 @@ class GameController < ApplicationController
       flash.now[:notice] = hint_text
     end
     render "game/puzzle_template"
-  end
-
-  def carrot_eaten
-  # Need to click on carrot button / link? 
-  # Does it include the pocket? Use carrot?
   end
 
 end
