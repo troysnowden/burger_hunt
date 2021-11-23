@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get "/game", to: "game#index"
   get "/game/page-1", to: "game#page-1"
   post "/game/page-1", to: "game#page-2"
+  get "/game/page-5", to: "game#page-5"
 
   get "/register", to: "users#register"
   post "/register", to: "users#create"
