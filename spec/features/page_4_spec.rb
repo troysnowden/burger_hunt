@@ -1,24 +1,24 @@
-RSpec.feature "Page 3", type: :feature do
+RSpec.feature "Page 4", type: :feature do
   
-  scenario "Player can visit page 3 and see puzzle" do
-    visit ('/game/page3')
+  scenario "Player can visit page 4 and see puzzle" do
+    visit ('/game/page4')
     expect(page).to have_content "I'll let you on your way if you can solve this riddle"
     expect(page).to have_button 'Submit Answer'
   end
 
   scenario "Players can submit incorrect answer 3 times and have hint appear" do
-    visit ('/game/page3')
+    visit ('/game/page4')
     3.times do
       fill_in "puzzle_answer_input", with: "[puzzle-answer]"
       click_button 'Submit Answer'
     end
-    expect(page).to have_current_path '/game/page3'
+    expect(page).to have_current_path '/game/page4'
     expect(page).to have_content 'Hint!'
   end
 
   scenario "Players can submit correct answer have 'move' button appear" do
-    visit ('/game/page3')
-    fill_in "puzzle_answer_input", with: "a coin"
+    visit ('/game/page4')
+    fill_in "puzzle_answer_input", with: "mount everest"
     click_button 'Submit Answer'
     expect(page).to have_link 'Move'
     # click_link 'Move'
@@ -26,8 +26,8 @@ RSpec.feature "Page 3", type: :feature do
   end
 
   scenario "Players can submit correct answer have 'move' button appear" do
-    visit ('/game/page3')
-    fill_in "puzzle_answer_input", with: "A CoIn"
+    visit ('/game/page4')
+    fill_in "puzzle_answer_input", with: "Everest"
     click_button 'Submit Answer'
     expect(page).to have_link 'Move'
     # click_link 'Move'
@@ -35,8 +35,8 @@ RSpec.feature "Page 3", type: :feature do
   end
 
   scenario "Players can submit correct answer have 'move' button appear" do
-    visit ('/game/page3')
-    fill_in "puzzle_answer_input", with: "Coin"
+    visit ('/game/page4')
+    fill_in "puzzle_answer_input", with: "EVEREst"
     click_button 'Submit Answer'
     expect(page).to have_link 'Move'
     # click_link 'Move'
