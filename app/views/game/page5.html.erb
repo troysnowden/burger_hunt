@@ -2,7 +2,12 @@
   <p>
   Have you eaten your carrots today?
   </p>
-</div>
 
-<%= button_to "Wrong", '/page6', method: :get%>
-<%= button_to "Correct", '/win', method: :get%>
+  <p>
+  *** Other text about the puzzle goes here ***
+  </p>
+
+  <%= link_to "Wrong", '/game/page6', class: "wrong-correct-button" %>
+  <%= link_to "Correct", '/game/win', class: "wrong-correct-button" %>
+
+</div>
