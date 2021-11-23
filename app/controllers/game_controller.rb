@@ -4,6 +4,7 @@ class GameController < ApplicationController
 
   def page2
     session[:correct_answer_found] = nil
+    session[:puzzle_attempts] = 0
   end
 
   def page3
