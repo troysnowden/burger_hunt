@@ -5,7 +5,6 @@ class GameController < ApplicationController
   def page2
     session[:correct_answer_found] = nil
     session[:puzzle_attempts] = 0
-    session[:bike_text] = nil
   end
 
   def page3
@@ -22,16 +21,8 @@ class GameController < ApplicationController
     "Hint! Something or other here")
   end
 
-  def puzzle_check
-    if puzzle_input_correct(params[:puzzle_answer_input], session[:puzzle_answer])
-      session[:puzzle_answer] = nil
-      # flash message to say correct answer maybe?
-      session[:correct_answer_found] = true
-    else
-      session[:correct_answer_found] = nil
-      session[:puzzle_attempts] += 1
-    end
-    redirect_to session[:current_page]
+  def page5
+    session[:bike_text] = nil
   end
 
   def page6
@@ -43,6 +34,18 @@ class GameController < ApplicationController
   def page6_bike
     session[:bike_text] = true
     redirect_to '/game/page6'
+  end
+
+  def puzzle_check
+    if puzzle_input_correct(params[:puzzle_answer_input], session[:puzzle_answer])
+      session[:puzzle_answer] = nil
+      # flash message to say correct answer maybe?
+      session[:correct_answer_found] = true
+    else
+      session[:correct_answer_found] = nil
+      session[:puzzle_attempts] += 1
+    end
+    redirect_to session[:current_page]
   end
 
   private
