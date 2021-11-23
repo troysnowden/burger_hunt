@@ -7,11 +7,13 @@ class GameController < ApplicationController
   end
 
   def page3
+    session[:current_page] = "/game/page3"
     # Look at adding these riddle messages and answers to a db, and calling a random riddle maybe?
     setup_puzzle_page("What has a head and a tail, but no body or legs?", "coin")
   end
 
   def page4
+    session[:current_page] = "/game/page4"
     # Look at adding these riddle messages and answers to a db, and calling a random riddle maybe?
     setup_puzzle_page("Before Mount Everest was discovered, what was the highest mountain on Earth?", "everest")
   end
@@ -25,7 +27,7 @@ class GameController < ApplicationController
       session[:correct_answer_found] = nil
       session[:puzzle_attempts] += 1
     end
-    redirect_to "/game/page3"
+    redirect_to session[:current_page]
   end
 
   private
