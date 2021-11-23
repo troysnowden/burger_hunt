@@ -12,11 +12,10 @@ Check your pockets to make sure they're there... otherwise this is going to be a
   As you recently volunteered for a medical research trial, 
   your memory is a little hazy and can't exactly remember how to get to Big Boys Burger. You’re presented with two options: left or right.
 </p>
-</div>
-<div>
-  <%= button_to "Left", '/index', method: :get, class: "left-button" %>
-</div>
 
-<div>
-  <%= button_to "Right", '/index', method: :get, class: "welcome-page-buttons" %>
+<span>
+  <%= link_to "Left", '/game/page3', class: "button" %>
+  <%= link_to "Right", '/game/page4', class: "button" %>
+</span>
+
 </div>
