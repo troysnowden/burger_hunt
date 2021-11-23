@@ -33,6 +33,16 @@ class GameController < ApplicationController
     redirect_to session[:current_page]
   end
 
+  def page5
+    session[:page_6_deadend_visited] = nil
+    # This probably needs to be set to nil in page 3 and page 4 instead?
+    # otherwise would reset to nil when page 5 was landed on after being at page 6?
+    session[:carrot_eaten] = 0
+  end
+
+
+
+
   private
 
   def puzzle_input_correct(input, answer)
@@ -51,5 +61,9 @@ class GameController < ApplicationController
     render "game/puzzle_template"
   end
 
+  def carrot_eaten
+  # Need to click on carrot button / link? 
+  # Does it include the pocket? Use carrot?
+  end
 
 end
