@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   # The post route above may not be needed if we change the button to a link?
   get "/game/page2", to: "game#page2"
   get "/game/page3", to: "game#page3"
+  get "/game/page4", to: "game#page4"
   post "/game/puzzle-answer", to: "game#puzzle_check"
 
   get "/game/page5", to: "game#page5"
