@@ -1,0 +1,22 @@
+<div class="story-text">
+<p>
+Your instincts took you left… your instincts were wrong. You follow the tired pavement around to the back of your apartment building. There is an old tv, a bicycle with 3 wheels and several large dumpsters that haven’t been emptied in some time.
+</p>
+
+<p>
+Nothing else here seems to be worth your time…
+</p>
+
+<p>
+ What do you do?
+</p>
+
+<% if @bike_text_clicked %>
+  <p class = 'narrator-text'> The bike is the definition of being a third wheel. </p>
+  <%= link_to "Go back", '/game/page5', class: "button" %>
+<% else %>
+  <%= link_to "Question why a bicycle has 3 wheels...", '/game/page6-bike', class: "button" %>
+  <%= link_to "Go back", '/game/page5', class: "button" %>
+<% end %>
+
+</div>
