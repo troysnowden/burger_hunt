@@ -34,4 +34,13 @@ RSpec.feature "Page 3", type: :feature do
     # expect(page).to have_current_path '/game/page5'
   end
 
+  scenario "Players can submit correct answer have 'move' button appear" do
+    visit ('/game/page3')
+    fill_in "puzzle_answer_input", with: "Coin"
+    click_button 'Submit Answer'
+    expect(page).to have_link 'Move'
+    # click_link 'Move'
+    # expect(page).to have_current_path '/game/page5'
+  end
+
 end
