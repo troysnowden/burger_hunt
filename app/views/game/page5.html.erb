@@ -21,7 +21,7 @@
     
   <%= link_to "Left (wrong)", '/game/page6', class: "wrong-correct-button" %>
 
-  <% if @page6_visited %>
+  <% if @eaten_enough_carrots %>
     <%= link_to "Right (correct)", '/game/win', class: "wrong-correct-button" %>
   <% end %>
 

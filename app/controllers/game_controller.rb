@@ -25,14 +25,16 @@ class GameController < ApplicationController
 
   def page5
     session[:bike_text] = nil
-
-      if session[:page6_visited] == true
-        @page6_visited = true
-      end
-
+    if session[:page6_visited] == true
+      @page6_visited = true
+    end
   end
-  # Need to add in method about carrots_eaten
 
+  def page5_carrots
+    if session[:carrots_eaten] == 3
+      @eaten_enough_carrots = true
+    end
+  end
 
   def page6
     session[:page6_visited] = true
