@@ -15,8 +15,9 @@
 
 .story-text {
   color: #ffffff;
-  padding: 10%;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
 .landing_screen_button {
@@ -24,7 +25,6 @@
 }
 
 #name-form {
-  padding: 20%;
   color: #ffffff;
 }
 
@@ -38,7 +38,28 @@
   align-self: center;
 }
 
+.puzzle-form {
+  padding-top: 5%;
+  padding-bottom: 5%;
+  color: #ffffff;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+a.button {
+  color: #ffffff;
+  text-decoration: none;
+  width:fit-content;
+  background-color: red;
+}
+
+.alert {
+  background-color: #f4d836;
+  color: #000000;
+  border: 2.5px white;
+}
+
 body {
+  /* padding: 10%; */
   min-height: 100vh;
   font-family: canada-type-gibson, sans-serif;
   font-weight: 300;
