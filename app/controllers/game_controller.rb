@@ -7,15 +7,17 @@ class GameController < ApplicationController
   end
 
   def page3
-    session[:current_page] = "/game/page3"
+    session[:current_page] = request.fullpath
     # Look at adding these riddle messages and answers to a db, and calling a random riddle maybe?
-    setup_puzzle_page("What has a head and a tail, but no body or legs?", "coin")
+    setup_puzzle_page("What has a head and a tail, but no body or legs?", "coin",
+       "Hint! You have a 50/50 chance of getting it right, maybe even the flip of a coin.")
   end
 
   def page4
-    session[:current_page] = "/game/page4"
+    session[:current_page] = request.fullpath
     # Look at adding these riddle messages and answers to a db, and calling a random riddle maybe?
-    setup_puzzle_page("Before Mount Everest was discovered, what was the highest mountain on Earth?", "everest")
+    setup_puzzle_page("Before Mount Everest was discovered, what was the highest mountain on Earth?", "everest", 
+    "Hint! Something or other here")
   end
 
   def puzzle_check
@@ -36,14 +38,14 @@ class GameController < ApplicationController
     input.downcase.include?(answer)
   end
 
-  def setup_puzzle_page(puzzle_text, puzzle_answer)
+  def setup_puzzle_page(puzzle_text, puzzle_answer, hint_text)
     session[:puzzle_attempts] = 0 unless session[:puzzle_answer]
     @puzzle_text = puzzle_text
     session[:puzzle_answer] = puzzle_answer
     if session[:correct_answer_found]
       @correct_answer_found = true
     elsif session[:puzzle_attempts] >= 3
-      flash.now[:notice] = "Hint! You have a 50/50 chance of getting it right, maybe even the flip of a coin."
+      flash.now[:notice] = hint_text
     end
     render "game/puzzle_template"
   end
