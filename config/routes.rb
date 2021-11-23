@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get "/game/home", to: "game#home"
   get "/game/right", to: "game#right"
   get "/game/left", to: "game#left"
+  get "/game/choice_1", to: "game#choice_1"
 
   get "/register", to: "users#register"
   post "/register", to: "users#create"
