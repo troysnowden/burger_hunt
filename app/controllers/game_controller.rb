@@ -1,16 +1,22 @@
 class GameController < ApplicationController
   def page1
-    session[:pocket] = ["Chocolate Bar", "T Rex Egg"]
-    @pocket = session[:pocket]
+    session[:current_page] = request.fullpath
+    session[:pocket] = ["Chocolate Bar", "T-Rex Egg"]
+    session[:equipped_item] = session[:pocket][0] unless session[:equipped_item]
+    import_pocket
   end
 
   def page2
+    session[:current_page] = request.fullpath
     session[:correct_answer_found] = nil
     session[:puzzle_attempts] = 0
+    add_to_pocket("Keys")
+    import_pocket
   end
 
   def page3
     session[:current_page] = request.fullpath
+    import_pocket
     # Look at adding these riddle messages and answers to a db, and calling a random riddle maybe?
     setup_puzzle_page("What has a head and a tail, but no body or legs?", "coin",
        "Hint! You have a 50/50 chance of getting it right, maybe even the flip of a coin.")
@@ -18,16 +24,21 @@ class GameController < ApplicationController
 
   def page4
     session[:current_page] = request.fullpath
+    import_pocket
     # Look at adding these riddle messages and answers to a db, and calling a random riddle maybe?
     setup_puzzle_page("Before Mount Everest was discovered, what was the highest mountain on Earth?", "everest", 
     "Hint! Something or other here")
   end
 
   def page5
+    session[:current_page] = request.fullpath
+    import_pocket
     session[:bike_text] = nil
   end
 
   def page6
+    session[:current_page] = request.fullpath
+    import_pocket
     if session[:bike_text] == true
       @bike_text_clicked = true
     end
@@ -53,7 +64,14 @@ class GameController < ApplicationController
   def equip_item
     if params["Chocolate Bar"]
       session[:equipped_item] = "Chocolate Bar"
+    elsif params["T-Rex Egg"]
+      session[:equipped_item] = "T-Rex Egg"
+    elsif params["Keys"]
+      session[:equipped_item] = "Keys"
+    elsif params["Carrot"]
+      session[:equipped_item] = "Carrot"
     end
+    redirect_to session[:current_page]
   end
 
   private
@@ -72,6 +90,15 @@ class GameController < ApplicationController
       flash.now[:notice] = hint_text
     end
     render "game/puzzle_template"
+  end
+
+  def import_pocket
+    @pocket = session[:pocket]
+    @equipped_item = session[:equipped_item]
+  end
+
+  def add_to_pocket(item)
+    session[:pocket].push(item) unless session[:pocket].include?(item)
   end
 
 end

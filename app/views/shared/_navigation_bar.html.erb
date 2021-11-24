@@ -18,8 +18,15 @@
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <% @pocket.each do |item| %>
-          <%= form_tag '/game/equip-item' %>
-          <a class="dropdown-item" href="#"><%= item %><%= submit_tag "Equip", name: item %></a>
+          <%= form_tag '/game/equip-item' do %>
+            <a class="dropdown-item"><%= item %>
+            <% if @equipped_item == item %>
+              - Equipped
+            <% else %>
+              <%= submit_tag "Equip", name: item %>
+            <% end %>
+            </a>
+          <% end %>
         <% end %>
       </div>
     </div>

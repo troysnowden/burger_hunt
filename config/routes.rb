@@ -4,8 +4,6 @@ Rails.application.routes.draw do
   get "/game", to: "game#index"
 
   get "/game/page1", to: "game#page1"
-  post "/game/page1", to: "game#page2"
-  # The post route above may not be needed if we change the button to a link?
   get "/game/page2", to: "game#page2"
   get "/game/page3", to: "game#page3"
   get "/game/page4", to: "game#page4"
