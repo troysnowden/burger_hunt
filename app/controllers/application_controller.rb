@@ -3,6 +3,10 @@ class ApplicationController < ActionController::Base
   helper_method :logged_in?
 
   def index
+    session[:user_id] = nil
+    session[:equipped_item] = nil
+    session[:keys_grabbed] = nil
+    session[:door_locked] = nil
   end
 
   def current_user
