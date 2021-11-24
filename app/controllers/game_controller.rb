@@ -29,8 +29,14 @@ class GameController < ApplicationController
       @page6_visited = true
     end
 
-    if session[:carrots_eaten] == 3
-      @eaten_enough_carrots = true
+    if session[:carrots_eaten] == 0
+      @eaten_zero_carrots = true
+    elsif session[:carrots_eaten] == 1
+      @eaten_one_carrot = true
+    elsif session[:carrots_eaten] == 2
+      @eaten_two_carrots = true
+    elsif session[:carrots_eaten] == 3
+      @eaten_three_carrots = true
     end
 
   end

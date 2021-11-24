@@ -11,7 +11,7 @@
   </p>
   <p>
   Should you go left or right? If only you had something to help light up your path...
-  <%= link_to "CARROT", '/game/page5-eat-carrot', class: "button" %>
+  <%= link_to "CARROT", '/game/page5-eat-carrot', class: "button" %> **ADD NEON CARROT HERE**
   </p>
 
     <div class="alert">
@@ -20,10 +20,22 @@
       <% end %>
     </div>
     
-  <%= link_to "Left (wrong)", '/game/page6', class: "wrong-correct-button" %>
+  <%= link_to "Left (wrong)", '/game/page6', class: "page5-button" %>
 
-  <% if @eaten_enough_carrots %>
-    <%= link_to "Right (correct)", '/game/win', class: "wrong-correct-button" %>
+  <% if @eaten_zero_carrots %>
+    <%= link_to "Right (correct)", '/game/win', class: "page5-button carrots-0" %>
+  <% end %>
+
+  <% if @eaten_one_carrot %>
+    <%= link_to "Right (correct)", '/game/win', class: "page5-button carrots-1" %>
+  <% end %>
+
+  <% if @eaten_two_carrots %>
+    <%= link_to "Right (correct)", '/game/win', class: "page5-button carrots-2" %>
+  <% end %>
+
+    <% if @eaten_three_carrots %>
+    <%= link_to "Right (correct)", '/game/win', class: "page5-button carrots-3" %>
   <% end %>
 
 </div>
