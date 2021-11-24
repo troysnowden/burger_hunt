@@ -25,14 +25,13 @@
   display: inline-block;
   font-size: 16px;
   transition-duration: 0.2s;
-  margin: 5px;
+  margin-left: 10%;
 }
 
 .leave-the-house-button:hover {
   background-color: white;
   color: #e32424;
 }
-
 
 .left-button {
   background-color: #e32424;
@@ -62,7 +61,6 @@
 .narrator-text {
   color: #d0e324
 }
-
 
 .carrots-0 {
   filter: opacity(0%)
