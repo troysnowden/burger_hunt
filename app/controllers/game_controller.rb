@@ -1,5 +1,6 @@
 class GameController < ApplicationController
   def page1
+    session[:city] = get_city_name
     session[:current_page] = request.fullpath
     session[:pocket] = ["Chocolate Bar", "T-Rex Egg"]
     session[:equipped_item] = session[:pocket][0] unless session[:equipped_item]
@@ -137,6 +138,7 @@ class GameController < ApplicationController
   def setup_puzzle_page(puzzle_text, puzzle_answer, hint_text)
     session[:puzzle_attempts] = 0 unless session[:puzzle_answer]
     @puzzle_text = puzzle_text
+    @city_name = session[:city]
     session[:puzzle_answer] = puzzle_answer
     if session[:correct_answer_found]
       @correct_answer_found = true
@@ -153,6 +155,12 @@ class GameController < ApplicationController
 
   def add_to_pocket(item)
     session[:pocket].push(item) unless session[:pocket].include?(item)
+  end
+
+  def get_city_name
+    response = 
+    (JSON.parse HTTParty.get('http://geodb-free-service.wirefreethought.com/v1/geo/cities?limit=5&offset=0&location=53.6801-1.492', format: :plain), symbolize_names: true)[:data]
+    response[rand(response.length - 1)][:name]
   end
 
 end
