@@ -1,6 +1,7 @@
 class GameController < ApplicationController
   def page1
     session[:current_page] = request.fullpath
+    autosave
     session[:pocket] = ["Chocolate Bar", "T-Rex Egg"]
     session[:equipped_item] = session[:pocket][0] unless session[:equipped_item]
     session[:incorrect_lock_item_message] = nil
@@ -13,6 +14,7 @@ class GameController < ApplicationController
 
   def page2
     session[:current_page] = request.fullpath
+    autosave
     session[:correct_answer_found] = nil
     session[:puzzle_attempts] = 0
     if session[:incorrect_lock_item_message]
@@ -28,6 +30,7 @@ class GameController < ApplicationController
 
   def page3
     session[:current_page] = request.fullpath
+    autosave
     import_pocket
     # Look at adding these riddle messages and answers to a db, and calling a random riddle maybe?
     setup_puzzle_page("What has a head and a tail, but no body or legs?", "coin",
@@ -36,6 +39,7 @@ class GameController < ApplicationController
 
   def page4
     session[:current_page] = request.fullpath
+    autosave
     import_pocket
     # Look at adding these riddle messages and answers to a db, and calling a random riddle maybe?
     setup_puzzle_page("Before Mount Everest was discovered, what was the highest mountain on Earth?", "everest", 
@@ -44,6 +48,7 @@ class GameController < ApplicationController
 
   def page5
     session[:current_page] = request.fullpath
+    autosave
     import_pocket
     session[:bike_text] = nil
     if session[:page6_visited] == true
@@ -54,11 +59,8 @@ class GameController < ApplicationController
       @eaten_one_carrot = true
     elsif session[:carrots_eaten] == 2
       @eaten_two_carrots = true
-    elsif session[:carrots_eaten] == 3
+    elsif session[:carrots_eaten] >= 3
       @eaten_three_carrots = true
-    # elsif session[:carrots_eaten] >= 4
-    #   @eaten_four_carrots = true
-    # Trying to handle cases where more than 4 carrots eaten - currently the button goes transparent again
     end
   end
 
@@ -71,6 +73,7 @@ class GameController < ApplicationController
 
   def page6
     session[:current_page] = request.fullpath
+    autosave
     import_pocket
     session[:page6_visited] = true
     if session[:bike_text] == true
@@ -114,7 +117,6 @@ class GameController < ApplicationController
   end
 
   def lock_door
-    p "Hello"
     if session[:equipped_item] != "Keys"
       session[:incorrect_lock_item_message] = "You tried, unsuccessfully, to lock your door with a #{session[:equipped_item]}"
     else
@@ -153,6 +155,10 @@ class GameController < ApplicationController
 
   def add_to_pocket(item)
     session[:pocket].push(item) unless session[:pocket].include?(item)
+  end
+
+  def autosave
+    Save.find_or_create_by(user_id: session[:user_id]).update_attribute(:last_level, session[:current_page])
   end
 
 end
