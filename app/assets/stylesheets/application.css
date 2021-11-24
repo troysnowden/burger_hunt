@@ -63,3 +63,14 @@
   color: #d0e324
 }
 
+body {
+  /* padding: 10%; */
+  min-height: 100vh;
+  font-family: canada-type-gibson, sans-serif;
+  font-weight: 300;
+  font-size: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: #000000 !important;
+}
