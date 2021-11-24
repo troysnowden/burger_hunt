@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get "/game/page6-bike", to: "game#page6_bike"
   get "game/win", to: "game#win"
 
+  get "/save", to: "saves#create"
 
   get "/register", to: "users#register"
   post "/register", to: "users#create"
