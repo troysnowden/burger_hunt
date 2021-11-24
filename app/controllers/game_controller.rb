@@ -124,6 +124,10 @@ class GameController < ApplicationController
     redirect_to "/game/page2"
   end
 
+  def win
+    import_pocket
+  end
+
   private
 
   def puzzle_input_correct?(input, answer)
