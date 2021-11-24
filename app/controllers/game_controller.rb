@@ -29,16 +29,13 @@ class GameController < ApplicationController
       @page6_visited = true
     end
 
-    if session[:carrots_eaten] == 0
-      @eaten_zero_carrots = true
-    elsif session[:carrots_eaten] == 1
+    if session[:carrots_eaten] == 1
       @eaten_one_carrot = true
     elsif session[:carrots_eaten] == 2
       @eaten_two_carrots = true
     elsif session[:carrots_eaten] == 3
       @eaten_three_carrots = true
     end
-
   end
 
   def page5_eat_carrot
@@ -47,12 +44,6 @@ class GameController < ApplicationController
     session[:carrots_eaten] += 1
     redirect_to '/game/page5'
   end
-
-  # def page5_enough_carrots
-  #   if session[:carrots_eaten] == 3
-  #     @eaten_enough_carrots = true
-  #   end
-  # end
 
   def page6
     session[:page6_visited] = true

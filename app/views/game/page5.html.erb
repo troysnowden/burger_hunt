@@ -20,27 +20,19 @@
       <% end %>
     </div>
     
-  <%= link_to "Left (wrong)", '/game/page6', class: "page5-button" %>
-
-  <% if @eaten_zero_carrots %>
-    <%= link_to "Right (correct)", '/game/win', class: "page5-button carrots-0" %>
-  <% end %>
+  <%= link_to "Left", '/game/page6', class: "page5-button" %>
+  <%= link_to "Right", '/game/win', class: "page5-button carrots-0" %>
 
   <% if @eaten_one_carrot %>
-    <%= link_to "Right (correct)", '/game/win', class: "page5-button carrots-1" %>
+    <%= link_to "Right", '/game/win', class: "page5-button carrots-1" %>
   <% end %>
 
   <% if @eaten_two_carrots %>
-    <%= link_to "Right (correct)", '/game/win', class: "page5-button carrots-2" %>
+    <%= link_to "Right", '/game/win', class: "page5-button carrots-2" %>
   <% end %>
 
     <% if @eaten_three_carrots %>
-    <%= link_to "Right (correct)", '/game/win', class: "page5-button carrots-3" %>
+    <%= link_to "Right", '/game/win', class: "page5-button carrots-3" %>
   <% end %>
 
 </div>
-
-
-
-
-
