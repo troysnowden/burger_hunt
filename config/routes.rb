@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   get "/game/page6", to: "game#page6"
   get "/game/page6-bike", to: "game#page6_bike"
 
+  post "/game/equip-item", to: "game#equip_item"
+
   get "/register", to: "users#register"
   post "/register", to: "users#create"
   get "/login", to: "users#login"

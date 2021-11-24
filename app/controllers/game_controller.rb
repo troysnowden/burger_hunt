@@ -1,5 +1,7 @@
 class GameController < ApplicationController
   def page1
+    session[:pocket] = ["Chocolate Bar", "T Rex Egg"]
+    @pocket = session[:pocket]
   end
 
   def page2
@@ -46,6 +48,12 @@ class GameController < ApplicationController
       session[:puzzle_attempts] += 1
     end
     redirect_to session[:current_page]
+  end
+
+  def equip_item
+    if params["Chocolate Bar"]
+      session[:equipped_item] = "Chocolate Bar"
+    end
   end
 
   private

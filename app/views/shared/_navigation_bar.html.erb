@@ -11,8 +11,22 @@
     </div>
   <% end %>
 
-  <div class="nav-section">
-    <%= button_to "Log in", '/login', method: :get%>
-  </div>
+  <% if logged_in? %>
+    <div class="dropdown dropleft">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Pocket
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <% @pocket.each do |item| %>
+          <%= form_tag '/game/equip-item' %>
+          <a class="dropdown-item" href="#"><%= item %><%= submit_tag "Equip", name: item %></a>
+        <% end %>
+      </div>
+    </div>
+  <% else %>
+    <div class="nav-section">
+      <%= button_to "Log in", '/login', method: :get%>
+    </div>
+  <% end %>
   
 </div>
