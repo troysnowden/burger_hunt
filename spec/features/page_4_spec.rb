@@ -21,8 +21,8 @@ RSpec.feature "Page 4", type: :feature do
     fill_in "puzzle_answer_input", with: "mount everest"
     click_button 'Submit Answer'
     expect(page).to have_link 'Move'
-    # click_link 'Move'
-    # expect(page).to have_current_path '/game/page5'
+    click_link 'Move'
+    expect(page).to have_current_path '/game/page5'
   end
 
   scenario "Players can submit correct answer have 'move' button appear" do
@@ -30,8 +30,8 @@ RSpec.feature "Page 4", type: :feature do
     fill_in "puzzle_answer_input", with: "Everest"
     click_button 'Submit Answer'
     expect(page).to have_link 'Move'
-    # click_link 'Move'
-    # expect(page).to have_current_path '/game/page5'
+    click_link 'Move'
+    expect(page).to have_current_path '/game/page5'
   end
 
   scenario "Players can submit correct answer have 'move' button appear" do
@@ -39,8 +39,8 @@ RSpec.feature "Page 4", type: :feature do
     fill_in "puzzle_answer_input", with: "EVEREst"
     click_button 'Submit Answer'
     expect(page).to have_link 'Move'
-    # click_link 'Move'
-    # expect(page).to have_current_path '/game/page5'
+    click_link 'Move'
+    expect(page).to have_current_path '/game/page5'
   end
 
 end

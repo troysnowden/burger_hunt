@@ -5,6 +5,8 @@ class GameController < ApplicationController
   def page2
     session[:correct_answer_found] = nil
     session[:puzzle_attempts] = 0
+    session[:page6_visited] = nil
+    session[:carrots_eaten] = 0
   end
 
   def page3
@@ -23,9 +25,31 @@ class GameController < ApplicationController
 
   def page5
     session[:bike_text] = nil
+    if session[:page6_visited] == true
+      @page6_visited = true
+    end
+
+    if session[:carrots_eaten] == 1
+      @eaten_one_carrot = true
+    elsif session[:carrots_eaten] == 2
+      @eaten_two_carrots = true
+    elsif session[:carrots_eaten] == 3
+      @eaten_three_carrots = true
+    # elsif session[:carrots_eaten] >= 4
+    #   @eaten_four_carrots = true
+    # Trying to handle cases where more than 4 carrots eaten - currently the button goes transparent again
+    end
+  end
+
+  def page5_eat_carrot
+    # carrot button is clicked
+    # later on, include pocket functionality here?
+    session[:carrots_eaten] += 1
+    redirect_to '/game/page5'
   end
 
   def page6
+    session[:page6_visited] = true
     if session[:bike_text] == true
       @bike_text_clicked = true
     end

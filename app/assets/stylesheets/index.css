@@ -52,6 +52,12 @@
   align-self: center;
 }
 
+.carrot-img {
+  height: 50px;
+  width: 100px;
+  align-self: center;
+}
+
 .puzzle-form {
   padding-top: 5%;
   padding-bottom: 5%;
