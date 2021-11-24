@@ -3,6 +3,9 @@ class ApplicationController < ActionController::Base
   helper_method :logged_in?
 
   def index
+    if logged_in?
+      @saved_game = Save.find_by(user_id: session[:user_id])
+    end
     session[:user_id] = nil
     session[:equipped_item] = nil
     session[:keys_grabbed] = nil

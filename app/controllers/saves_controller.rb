@@ -1,12 +1,12 @@
 class SavesController < ApplicationController
 
   def create
-    Save.create(last_level: session[:current_page], user_id: session[:user_id])
+    Save.find_or_create_by(user_id: session[:user_id]).update_attribute(:last_level, session[:current_page])
     redirect_to session[:current_page]
   end
 
   def load
-    p Save.find_by(user_id: session[:user_id])
+    Save.find_by(user_id: session[:user_id])
   end
 
 end

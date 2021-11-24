@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-  <% if logged_in? %>
+  <% if logged_in? && !current_page?('/')%>
     <div class="dropdown dropleft">
       <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Pocket
@@ -30,9 +30,13 @@
         <% end %>
       </div>
     </div>
+  <% elsif logged_in? && current_page?('/') %>
+    <div class="nav-section">
+      <%= button_to current_user.username, '#', method: :get%>
+    </div>
   <% else %>
     <div class="nav-section">
-      <%= button_to "Log in", '/login', method: :get%>
+      <%= button_to "Login", '/login', method: :get%>
     </div>
   <% end %>
   
