@@ -1,13 +1,44 @@
 <div class="story-text">
+  
   <p>
-  Have you eaten your carrots today?
+  You continue forwards. 
+  </p>
+  <p>
+  Feeling good about yourself you take some time to peer into the shop windows. 
+  Everything is closed, but who doesn’t enjoy a bit of evening window shopping? 
+  The further you progress down this narrow street you notice the street lights are no longer working 
+  and you find yourself caught in darkness. 
+  </p>
+  <p>
+  Should you go left or right? If only you had something to help light up your path...
+    <%= link_to '/game/page5-eat-carrot', class: "carrot-img" do %>
+      <%= image_tag "carrot-no-background.png", id: "neon-carrot-image", alt: "Click here to eat carrot", class: "carrot-img"%>
+    <% end %>
   </p>
 
-  <p>
-  *** Other text about the puzzle goes here ***
-  </p>
+    <div class="alert">
+      <% if @page6_visited %>
+        <p>HINT: Have you eaten your carrots today?</p>
+      <% end %>
+    </div>
+    
+  <%= link_to "Left", '/game/page6', class: "page5-button" %>
+  <%= link_to "Right", '/game/win', class: "page5-button carrots-0" %>
 
-  <%= link_to "Wrong", '/game/page6', class: "wrong-correct-button" %>
-  <%= link_to "Correct", '/game/win', class: "wrong-correct-button" %>
+  <% if @eaten_one_carrot %>
+    <%= link_to "Right", '/game/win', class: "page5-button carrots-1" %>
+  <% end %>
+
+  <% if @eaten_two_carrots %>
+    <%= link_to "Right", '/game/win', class: "page5-button carrots-2" %>
+  <% end %>
+
+  <% if @eaten_three_carrots %>
+    <%= link_to "Right", '/game/win', class: "page5-button carrots-3" %>
+  <% end %>
+
+  <% if @eaten_four_carrots %>
+    <%= link_to "Right", '/game/win', class: "page5-button carrots-3" %>
+  <% end %>
 
 </div>

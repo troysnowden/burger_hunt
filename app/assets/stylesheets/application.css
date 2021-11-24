@@ -39,7 +39,7 @@
   margin-left: 450px;
 }
 
-.wrong-correct-button {
+.page5-button {
   background-color: #e32424;
   border: none;
   border-radius: 4px;
@@ -53,11 +53,27 @@
   margin: 5px;
 }
 
-.wrong-correct-button:hover {
+.page5-button:hover {
   background-color: white;
   color: #e32424;
 }
 
 .narrator-text {
   color: #d0e324
+}
+
+.carrots-0 {
+  filter: opacity(0%)
+}
+
+.carrots-1 {
+  filter: opacity(33%)
+}
+
+.carrots-2 {
+  filter: opacity(66%)
+}
+
+.carrots-3 {
+  filter: opacity(100%)
 }
