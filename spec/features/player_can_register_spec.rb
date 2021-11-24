@@ -12,7 +12,7 @@ RSpec.feature "Register", type: :feature do
     visit "/register"
     fill_in "user[username]", with: "user1"
     fill_in "user[password]", with: "test"
-    click_button "Create User"
+    click_button "Register"
   end
 
 end
