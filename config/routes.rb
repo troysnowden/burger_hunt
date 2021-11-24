@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   root "game#index"
   
-  get "/game", to: "game#index"
-
   get "/game/page1", to: "game#page1"
   get "/game/page2", to: "game#page2"
   get "/game/page3", to: "game#page3"
@@ -12,8 +10,6 @@ Rails.application.routes.draw do
   get "/game/page6", to: "game#page6"
   get "/game/page6-bike", to: "game#page6_bike"
   get "game/win", to: "game#win"
-
-
   post "/game/equip-item", to: "game#equip_item"
 
   get "/register", to: "users#register"

@@ -50,7 +50,7 @@ class GameController < ApplicationController
   end
 
   def puzzle_check
-    if puzzle_input_correct(params[:puzzle_answer_input], session[:puzzle_answer])
+    if puzzle_input_correct?(params[:puzzle_answer_input], session[:puzzle_answer])
       session[:puzzle_answer] = nil
       # flash message to say correct answer maybe?
       session[:correct_answer_found] = true
@@ -76,7 +76,7 @@ class GameController < ApplicationController
 
   private
 
-  def puzzle_input_correct(input, answer)
+  def puzzle_input_correct?(input, answer)
     input.downcase.include?(answer)
   end
 
