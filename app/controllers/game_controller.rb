@@ -15,7 +15,6 @@ class GameController < ApplicationController
     session[:current_page] = request.fullpath
     session[:correct_answer_found] = nil
     session[:puzzle_attempts] = 0
-<<<<<<< HEAD
     if session[:incorrect_lock_item_message]
       flash.now[:notice] = session[:incorrect_lock_item_message]
     end
@@ -23,10 +22,8 @@ class GameController < ApplicationController
       @door_locked = true
     end
     import_pocket
-=======
     session[:page6_visited] = nil
     session[:carrots_eaten] = 0
->>>>>>> 773b8911395fc0d7f91a761393bfa83bee271b15
   end
 
   def page3
@@ -73,12 +70,9 @@ class GameController < ApplicationController
   end
 
   def page6
-<<<<<<< HEAD
     session[:current_page] = request.fullpath
     import_pocket
-=======
     session[:page6_visited] = true
->>>>>>> 773b8911395fc0d7f91a761393bfa83bee271b15
     if session[:bike_text] == true
       @bike_text_clicked = true
     end
