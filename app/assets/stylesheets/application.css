@@ -62,6 +62,23 @@
   color: #d0e324
 }
 
+.page-footer {
+  background-color: rgb(0, 0, 0);
+  border-bottom: 3px solid black;
+  text-align: left;
+  color: rgb(245, 2, 2);
+  position:absolute;
+  bottom:0;
+  width:100%;
+  font-size: 60%;
+  font-weight:bold;
+ }
+
+.page-footer-icon {
+  width: 60px;
+  height: 30px;
+}
+
 .carrots-0 {
   filter: opacity(0%)
 }
