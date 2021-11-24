@@ -2,7 +2,10 @@
 <div class="navigation-bar nav-space-between">  
   <div class="nav-section">
     <%= link_to "How to play", '/how-to-play', class: "navbar-button" %>
-    <%= link_to "Start again", '/game/page1', class: "navbar-button" %>
+
+    <% if logged_in? %>
+      <%= link_to "Start again", '/game/page1', class: "navbar-button" %>
+    <% end %>
   </div>
 
   <% if !current_page?('/') %>
@@ -31,12 +34,11 @@
           <% end %>
         </div>
       </div>
+      <p class="navigation-bar-text">Username</p>
     <% else %>
-        <%= button_to "Log in", '/login', method: :get%>
+      <%= link_to "Log in", '/login', class: "navbar-button" %>
     <% end %>
-    
-    <p class="navigation-bar-text">Username</p>
-
+  
   </div>
 
 </div>
