@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-  <% if logged_in? && !current_page?('/')%>
+  <% if logged_in? && !(current_page?('/') || current_page?('/register') || current_page?('/login'))%>
     <div class="dropdown dropleft">
       <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Pocket
