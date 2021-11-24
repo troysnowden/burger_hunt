@@ -1,14 +1,8 @@
 
-<div class="navigation-bar nav-space-between">
-
+<div class="navigation-bar nav-space-between">  
   <div class="nav-section">
-    <div class="nav-section">
-      <%= link_to "How to play", '/how-to-play', class: "navbar-button" %>
-    </div>
-
-    <div class="nav-section">
-        <h5>USERNAME</h5>
-    </div>
+    <%= link_to "How to play", '/how-to-play', class: "navbar-button" %>
+    <%= link_to "Start again", '/game/page1', class: "navbar-button" %>
   </div>
 
   <% if !current_page?('/') %>
@@ -17,10 +11,7 @@
     </div>
   <% end %>
 
-
   <div class="nav-section">
-        <h3>USERNAME</h3>
-
     <% if logged_in? %>
       <div class="dropdown dropleft">
         <button class="navbar-button btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -41,11 +32,11 @@
         </div>
       </div>
     <% else %>
-      <div class="nav-section">
         <%= button_to "Log in", '/login', method: :get%>
-      </div>
     <% end %>
-  
+    
+    <p class="navigation-bar-text">Username</p>
+
   </div>
 
 </div>
