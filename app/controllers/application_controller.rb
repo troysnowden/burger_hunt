@@ -4,6 +4,10 @@ class ApplicationController < ActionController::Base
 
   def index
     session[:user_id] = nil
+    session[:equipped_item] = nil
+    session[:keys_grabbed] = nil
+    session[:door_locked] = nil
+    session[:incorrect_lock_item_message] = nil
   end
 
   def current_user

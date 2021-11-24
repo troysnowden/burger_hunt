@@ -3,6 +3,10 @@ class GameController < ApplicationController
     session[:current_page] = request.fullpath
     session[:pocket] = ["Chocolate Bar", "T-Rex Egg"]
     session[:equipped_item] = session[:pocket][0] unless session[:equipped_item]
+    if session[:keys_grabbed]
+      add_to_pocket("Keys")
+      @keys_grabbed = true
+    end
     import_pocket
   end
 
@@ -10,7 +14,12 @@ class GameController < ApplicationController
     session[:current_page] = request.fullpath
     session[:correct_answer_found] = nil
     session[:puzzle_attempts] = 0
-    add_to_pocket("Keys")
+    if session[:incorrect_lock_item_message]
+      flash.now[:notice] = session[:incorrect_lock_item_message]
+    end
+    if session[:door_locked]
+      @door_locked = true
+    end
     import_pocket
   end
 
@@ -72,6 +81,22 @@ class GameController < ApplicationController
       session[:equipped_item] = "Carrot"
     end
     redirect_to session[:current_page]
+  end
+
+  def grab_keys
+    session[:keys_grabbed] = true
+    redirect_to "/game/page1"
+  end
+
+  def lock_door
+    p "Hello"
+    if session[:equipped_item] != "Keys"
+      session[:incorrect_lock_item_message] = "You tried, unsuccessfully, to lock your door with a #{session[:equipped_item]}"
+    else
+      session[:door_locked] = true
+      session[:incorrect_lock_item_message] = nil
+    end
+    redirect_to "/game/page2"
   end
 
   private

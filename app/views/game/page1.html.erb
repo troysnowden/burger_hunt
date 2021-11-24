@@ -13,9 +13,13 @@
   However, you opt for the more appealing decision of visiting your favourite restaurant: ‘Big Boys Big Burger Joint: for all ages’.
   </p>
 
-  <p>
-  You grab your keys and head out of your door, down the stairs, through the dimly lit hallway and out into the street.
-  </p>
+  <% if @keys_grabbed %>
+    <p>
+    You grab your keys and head out of your door, down the stairs, through the dimly lit hallway and out into the street.
+    </p>
+  <% else %>
+    <%= button_to "Grab Keys", '/game/grab-keys', class: "leave-the-house-button"%>
+  <% end %>
   <%= button_to "Leave the House", '/game/page2', class: "leave-the-house-button", method: :get%>
 
 </div>
