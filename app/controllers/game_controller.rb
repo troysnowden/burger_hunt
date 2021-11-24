@@ -35,6 +35,9 @@ class GameController < ApplicationController
       @eaten_two_carrots = true
     elsif session[:carrots_eaten] == 3
       @eaten_three_carrots = true
+    elsif session[:carrots_eaten] >= 4
+      @eaten_four_carrots = true
+    # Trying to handle cases where more than 4 carrots eaten - currently the button goes transparent again
     end
   end
 

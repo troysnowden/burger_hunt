@@ -33,7 +33,11 @@
     <%= link_to "Right", '/game/win', class: "page5-button carrots-2" %>
   <% end %>
 
-    <% if @eaten_three_carrots %>
+  <% if @eaten_three_carrots %>
+    <%= link_to "Right", '/game/win', class: "page5-button carrots-3" %>
+  <% end %>
+
+  <% if @eaten_four_carrots %>
     <%= link_to "Right", '/game/win', class: "page5-button carrots-3" %>
   <% end %>
 
