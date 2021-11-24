@@ -7,7 +7,6 @@ class ApplicationController < ActionController::Base
     session[:equipped_item] = nil
     session[:keys_grabbed] = nil
     session[:door_locked] = nil
-    session[:incorrect_lock_item_message] = nil
   end
 
   def current_user

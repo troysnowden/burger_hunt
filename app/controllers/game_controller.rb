@@ -3,6 +3,7 @@ class GameController < ApplicationController
     session[:current_page] = request.fullpath
     session[:pocket] = ["Chocolate Bar", "T-Rex Egg"]
     session[:equipped_item] = session[:pocket][0] unless session[:equipped_item]
+    session[:incorrect_lock_item_message] = nil
     if session[:keys_grabbed]
       add_to_pocket("Keys")
       @keys_grabbed = true
