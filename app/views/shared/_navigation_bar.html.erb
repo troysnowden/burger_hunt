@@ -2,7 +2,13 @@
 <div class="navigation-bar nav-space-between">
 
   <div class="nav-section">
-    <%= button_to "How to play", '/how-to-play', method: :get%>
+    <div class="nav-section">
+      <%= link_to "How to play", '/how-to-play', class: "navbar-button" %>
+    </div>
+
+    <div class="nav-section">
+        <h5>USERNAME</h5>
+    </div>
   </div>
 
   <% if !current_page?('/') %>
@@ -11,29 +17,35 @@
     </div>
   <% end %>
 
-  <% if logged_in? %>
-    <div class="dropdown dropleft">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Pocket
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <% @pocket.each do |item| %>
-          <%= form_tag '/game/equip-item' do %>
-            <a class="dropdown-item"><%= item %>
-            <% if @equipped_item == item %>
-              - Equipped
-            <% else %>
-              <%= submit_tag "Equip", name: item %>
+
+  <div class="nav-section">
+        <h3>USERNAME</h3>
+
+    <% if logged_in? %>
+      <div class="dropdown dropleft">
+        <button class="navbar-button btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Pocket
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <% @pocket.each do |item| %>
+            <%= form_tag '/game/equip-item' do %>
+              <a class="dropdown-item"><%= item %>
+              <% if @equipped_item == item %>
+                - Equipped
+              <% else %>
+                <%= submit_tag "Equip", name: item %>
+              <% end %>
+              </a>
             <% end %>
-            </a>
           <% end %>
-        <% end %>
+        </div>
       </div>
-    </div>
-  <% else %>
-    <div class="nav-section">
-      <%= button_to "Log in", '/login', method: :get%>
-    </div>
-  <% end %>
+    <% else %>
+      <div class="nav-section">
+        <%= button_to "Log in", '/login', method: :get%>
+      </div>
+    <% end %>
   
+  </div>
+
 </div>
