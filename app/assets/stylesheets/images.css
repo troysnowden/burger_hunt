@@ -7,6 +7,12 @@
   border-radius: 2%;
 }
 
+.carrot-img {
+  height: 50px;
+  width: 100px;
+  align-self: center;
+}
+
 .win-page-img {
   height: 30%;
   width: 30%;
