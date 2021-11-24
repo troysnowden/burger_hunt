@@ -10,10 +10,11 @@ Rails.application.routes.draw do
   get "/game/page3", to: "game#page3"
   get "/game/page4", to: "game#page4"
   post "/game/puzzle-answer", to: "game#puzzle_check"
-
   get "/game/page5", to: "game#page5"
   get "/game/page6", to: "game#page6"
   get "/game/page6-bike", to: "game#page6_bike"
+  get "game/win", to: "game#win"
+
 
   get "/register", to: "users#register"
   post "/register", to: "users#create"
