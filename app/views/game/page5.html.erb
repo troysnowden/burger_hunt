@@ -11,7 +11,9 @@
   </p>
   <p>
   Should you go left or right? If only you had something to help light up your path...
-  <%= link_to "CARROT", '/game/page5-eat-carrot', class: "button" %> **ADD NEON CARROT HERE**
+    <%= link_to '/game/page5-eat-carrot', class: "carrot-img" do %>
+      <%= image_tag "carrot-no-background.png", id: "neon-carrot-image", alt: "Click here to eat carrot", class: "carrot-img"%>
+    <% end %>
   </p>
 
     <div class="alert">
