@@ -1,0 +1,99 @@
+.leave-the-house-button{
+  background-color: #e32424;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  padding: 7px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition-duration: 0.2s;
+  margin-left: 10%;
+}
+
+.leave-the-house-button:hover {
+  background-color: white;
+  color: #e32424;
+}
+
+.left-button {
+  background-color: #e32424;
+  padding: 1em 3em;
+  margin-left: 450px;
+}
+
+.page5-button {
+  background-color: #e32424;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  padding: 7px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition-duration: 0.2s;
+  margin: 5px;
+}
+
+.page5-button:hover {
+  background-color: white;
+  color: #e32424;
+}
+
+.page6-button-1 {
+  background-color: #e32424;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  padding: 7px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition-duration: 0.2s;
+}
+
+.page6-button-1:hover {
+  background-color: white;
+  color: #e32424;
+}
+
+.page6-button-2 {
+  background-color: #e32424;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  padding: 7px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition-duration: 0.2s;
+  margin-left: 2%;
+}
+
+.page6-button-2:hover {
+  background-color: white;
+  color: #e32424;
+}
+
+.navbar-button {
+  background-color: #e32424;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  padding: 7px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition-duration: 0.2s;
+  margin: 5px;
+}
+
+.navbar-button:hover {
+  background-color: white;
+  color: #e32424;
+}

@@ -1,9 +1,15 @@
 
-<div class="navigation-bar nav-space-between">
-
+<div class="navigation-bar nav-space-between">  
   <div class="nav-section">
-    <%= button_to "How to play", '/how-to-play', method: :get%>
+    <button type="button" class="navbar-button" data-toggle="modal" data-target="#myModal">
+      How to play
+    </button>  
+
+    <% if logged_in? && !(current_page?('/') || current_page?('/register') || current_page?('/login')) %>
+      <%= link_to "Start again", '/game/page1', class: "navbar-button" %>
+    <% end %>
   </div>
+  
 
   <% if !current_page?('/') %>
     <div class="nav-section">
@@ -11,33 +17,32 @@
     </div>
   <% end %>
 
-  <% if logged_in? && !(current_page?('/') || current_page?('/register') || current_page?('/login'))%>
-    <div class="dropdown dropleft">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Pocket
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <% @pocket.each do |item| %>
-          <%= form_tag '/game/equip-item' do %>
-            <a class="dropdown-item"><%= item %>
-            <% if @equipped_item == item %>
-              - Equipped
-            <% else %>
-              <%= submit_tag "Equip", name: item %>
+  <div class="nav-section">
+    <% if logged_in? && !(current_page?('/') || current_page?('/register') || current_page?('/login'))%>
+      <div class="dropdown dropleft">
+        <button class="navbar-button dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Pocket
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <% @pocket.each do |item| %>
+            <%= form_tag '/game/equip-item' do %>
+              <a class="dropdown-item"><%= item %>
+              <% if @equipped_item == item %>
+                - Equipped
+              <% else %>
+                <%= submit_tag "Equip", name: item %>
+              <% end %>
+              </a>
             <% end %>
-            </a>
           <% end %>
-        <% end %>
+        </div>
       </div>
-    </div>
-  <% elsif logged_in? && current_page?('/') %>
-    <div class="nav-section">
-      <%= button_to current_user.username, '#', method: :get%>
-    </div>
-  <% else %>
-    <div class="nav-section">
-      <%= button_to "Login", '/login', method: :get%>
-    </div>
-  <% end %>
+      <%= button_to current_user.username, '#', method: :get, class: "navigation-bar-username-text"%>
+    <% else %>
+      <%= link_to "Log in", '/login', class: "navbar-button" %>
+    <% end %>
+  </div>
   
+  </div>
+
 </div>

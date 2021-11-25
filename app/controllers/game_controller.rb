@@ -1,7 +1,8 @@
 class GameController < ApplicationController
   def page1
+    session[:city] = get_city_name
     session[:current_page] = request.fullpath
-    autosave
+    #autosave
     session[:pocket] = ["Chocolate Bar", "T-Rex Egg"]
     session[:equipped_item] = session[:pocket][0] unless session[:equipped_item]
     session[:incorrect_lock_item_message] = nil
@@ -13,8 +14,9 @@ class GameController < ApplicationController
   end
 
   def page2
+    @city_name = session[:city]
     session[:current_page] = request.fullpath
-    autosave
+    #autosave
     session[:correct_answer_found] = nil
     session[:puzzle_attempts] = 0
     if session[:incorrect_lock_item_message]
@@ -30,7 +32,7 @@ class GameController < ApplicationController
 
   def page3
     session[:current_page] = request.fullpath
-    autosave
+    #autosave
     import_pocket
     # Look at adding these riddle messages and answers to a db, and calling a random riddle maybe?
     setup_puzzle_page("What has a head and a tail, but no body or legs?", "coin",
@@ -39,28 +41,29 @@ class GameController < ApplicationController
 
   def page4
     session[:current_page] = request.fullpath
-    autosave
+    #autosave
     import_pocket
     # Look at adding these riddle messages and answers to a db, and calling a random riddle maybe?
     setup_puzzle_page("Before Mount Everest was discovered, what was the highest mountain on Earth?", "everest", 
-    "Hint! Something or other here")
+    "Hint! Rufus isn't very knowledgable when it comes to the history of mountaineering conquests, so it must be a trick question")
   end
 
   def page5
     session[:current_page] = request.fullpath
-    autosave
+    #autosave
     import_pocket
     session[:bike_text] = nil
     if session[:page6_visited] == true
-      @page6_visited = true
+      flash.now[:notice] = "HINT: Have you eaten your carrots today?"
     end
-
-    if session[:carrots_eaten] == 1
-      @eaten_one_carrot = true
-    elsif session[:carrots_eaten] == 2
-      @eaten_two_carrots = true
-    elsif session[:carrots_eaten] >= 3
-      @eaten_three_carrots = true
+    if session[:carrots_eaten]
+      if session[:carrots_eaten] == 1
+        @eaten_one_carrot = true
+      elsif session[:carrots_eaten] == 2
+        @eaten_two_carrots = true
+      elsif session[:carrots_eaten] >= 3
+        @eaten_three_carrots = true
+      end
     end
   end
 
@@ -73,7 +76,7 @@ class GameController < ApplicationController
 
   def page6
     session[:current_page] = request.fullpath
-    autosave
+    #autosave
     import_pocket
     session[:page6_visited] = true
     if session[:bike_text] == true
@@ -139,6 +142,7 @@ class GameController < ApplicationController
   def setup_puzzle_page(puzzle_text, puzzle_answer, hint_text)
     session[:puzzle_attempts] = 0 unless session[:puzzle_answer]
     @puzzle_text = puzzle_text
+    @city_name = session[:city]
     session[:puzzle_answer] = puzzle_answer
     if session[:correct_answer_found]
       @correct_answer_found = true
@@ -157,9 +161,20 @@ class GameController < ApplicationController
     session[:pocket].push(item) unless session[:pocket].include?(item)
   end
 
-  def autosave
-    find_save = Save.find_or_create_by(user_id: session[:user_id])
-    find_save.update_attribute(:last_level, session[:current_page]) unless find_save.last_level[-1].to_i > session[:current_page][-1].to_i
+  # def autosave
+  #   find_save = Save.find_or_create_by(user_id: session[:user_id])
+  #   find_save.update_attribute(:last_level, session[:current_page]) unless find_save.last_level[-1].to_i > session[:current_page][-1].to_i
+  # end
+
+  def get_city_name
+    response_1 = 
+    (JSON.parse HTTParty.get('http://geodb-free-service.wirefreethought.com/v1/geo/cities?limit=5&offset=0&location=53.6801-1.492', format: :plain), symbolize_names: true)[:data]
+    response_2 = 
+    (JSON.parse HTTParty.get('http://geodb-free-service.wirefreethought.com/v1/geo/cities?limit=5&offset=0&location=54.977777777-1.613333333', format: :plain), symbolize_names: true)[:data]
+    response_3 = 
+    (JSON.parse HTTParty.get('http://geodb-free-service.wirefreethought.com/v1/geo/cities?limit=5&offset=0&location=53.466666666-2.233333333', format: :plain), symbolize_names: true)[:data]
+    full_response = response_1 + response_2 + response_3
+    full_response[rand(full_response.length - 1)][:name]
   end
 
 end

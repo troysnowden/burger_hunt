@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <title>Burger Hunt</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <%= favicon_link_tag asset_path('icon.png')%>
   </head>
 
@@ -17,7 +19,41 @@
     <body>
   <% end %>
     <%= render "shared/navigation_bar" %>
+
+<!-- The Modal -->
+    <div class="modal" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class= "how-to-text"> Here's how to play Burger Hunt</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+
+          <!-- Modal body -->
+          <div class="modal-body">
+            <p class= 'how-to-text'> Many years ago, some really smart people or person discovered the existence of electricity.
+            A whole bunch of years later, some more smart people or person harnessed that power to build
+            a device called a computer. Fast forward again and now we have the ability to use the efforts of our forefathers
+            to build spectacular video games. You're welcome. </p>
+            <p class= 'how-to-text'> Burger Hunt is a pretty straight forward game. Read the text to dive into a well written and not at all
+            hashed together story. You will be presented with choices and puzzles along the way. Use your intellect to navigate
+            your way through treacherous streets to reach your destination: a burger restaurant. We encourage you to be curious
+            and think outstide the box, but not too far outside, it's scary out there. </p>
+            <p class= 'how-to-text'> Good luck and stay fresh.</p>
+          </div>
+
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="navbar-button" data-dismiss="modal">Close</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
     <%= yield %>
+
     <%= render "shared/page_footer" %>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
