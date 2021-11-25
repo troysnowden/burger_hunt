@@ -2,7 +2,6 @@ class GameController < ApplicationController
   def page1
     session[:city] = get_city_name unless session[:city]
     session[:current_page] = request.fullpath
-    autosave
     session[:pocket] = ["Chocolate Bar", "T-Rex Egg"]
     session[:equipped_item] = session[:pocket][0] unless session[:equipped_item]
     session[:incorrect_lock_item_message] = nil
@@ -50,7 +49,7 @@ class GameController < ApplicationController
 
   def page5
     session[:current_page] = request.fullpath
-    #autosave
+    autosave
     import_pocket
     session[:bike_text] = nil
     if session[:page6_visited] == true
@@ -164,7 +163,7 @@ class GameController < ApplicationController
 
   def autosave
     find_save = Save.find_or_create_by(user_id: session[:user_id])
-    find_save.update_attribute(:last_level, session[:current_page]) unless find_save.last_level[-1].to_i > session[:current_page][-1].to_i
+    find_save.update_attribute(:last_level, session[:current_page]) #unless find_save.last_level[-1].to_i > session[:current_page][-1].to_i
   end
 
   def get_city_name
