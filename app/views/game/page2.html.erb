@@ -26,12 +26,12 @@
   </p>
 
   <span>
-    <%= link_to "Left", '/game/page3', class: "button" %>
-    <%= link_to "Right", '/game/page4', class: "button" %>
+    <%= link_to "Left", '/game/page3', class: "page5-button" %>
+    <%= link_to "Right", '/game/page4', class: "page5-button" %>
   </span>
 <% else %>
-  <%= button_to "Lock Door", '/game/lock-door', class: "leave-the-house-button"%>
+  <%= link_to "Lock Door", '/game/lock-door', class: "page5-button"%>
 <% end %>
-<%= link_to "Go back", '/game/page1', class: "button" %>
+<%= link_to "Go back", '/game/page1', class: "page5-button" %>
 
 </div>

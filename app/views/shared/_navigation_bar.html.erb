@@ -19,6 +19,22 @@
 
   <div class="nav-section">
     <% if logged_in? && !(current_page?('/') || current_page?('/register') || current_page?('/login'))%>
+      <% case @equipped_item %>
+        <% when "Carrot"%>
+          <% if current_page?('/game/page5')%>
+            <%= link_to '/game/page5-eat-carrot', class: "carrot-img" do %>
+              <%= image_tag "carrot-no-background.png", id: "neon-carrot-image", alt: "Click here to eat carrot", class: "carrot-img"%>
+            <% end %>
+          <% else %>
+            <%= image_tag "carrot-no-background.png", id: "neon-carrot-image", alt: "Click here to eat carrot", class: "carrot-img"%>
+          <% end %>
+        <% when "Keys"%>
+          <%= image_tag "keys.png", id: "neon-carrot-image", alt: "Chocolate Bar", class: "carrot-img"%>
+        <% when "Chocolate Bar"%>
+          <%= image_tag "choc-bar-2.png", id: "neon-carrot-image", alt: "Chocolate Bar", class: "carrot-img"%>
+        <% when "T-Rex Egg"%>
+          <%= image_tag "dino.png", id: "neon-carrot-image", alt: "Dinosaur", class: "carrot-img"%>
+      <% end %>
       <div class="dropdown dropleft">
         <button class="navbar-button dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Pocket

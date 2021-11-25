@@ -14,8 +14,8 @@ Rails.application.routes.draw do
   get "game/win", to: "game#win"
 
   post "/game/equip-item", to: "game#equip_item"
-  post "/game/grab-keys", to: "game#grab_keys"
-  post "/game/lock-door", to: "game#lock_door"
+  get "/game/grab-keys", to: "game#grab_keys"
+  get "/game/lock-door", to: "game#lock_door"
 
   get "/save", to: "saves#create"
 
