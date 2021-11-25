@@ -1,9 +1,15 @@
 
-<div class="navigation-bar nav-space-between">
-
+<div class="navigation-bar nav-space-between">  
   <div class="nav-section">
-    <%= button_to "How to play", '/how-to-play', method: :get%>
+    <button type="button" class="navbar-button" data-toggle="modal" data-target="#myModal">
+      How to play
+    </button>  
+
+    <% if logged_in? && !(current_page?('/') || current_page?('/register') || current_page?('/login')) %>
+      <%= link_to "Start again", '/game/page1', class: "navbar-button" %>
+    <% end %>
   </div>
+  
 
   <% if !current_page?('/') %>
     <div class="nav-section">
@@ -11,29 +17,48 @@
     </div>
   <% end %>
 
-  <% if logged_in? %>
-    <div class="dropdown dropleft">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Pocket
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <% @pocket.each do |item| %>
-          <%= form_tag '/game/equip-item' do %>
-            <a class="dropdown-item"><%= item %>
-            <% if @equipped_item == item %>
-              - Equipped
-            <% else %>
-              <%= submit_tag "Equip", name: item %>
+  <div class="nav-section">
+    <% if logged_in? && !(current_page?('/') || current_page?('/register') || current_page?('/login'))%>
+      <% case @equipped_item %>
+        <% when "Carrot"%>
+          <% if current_page?('/game/page5')%>
+            <%= link_to '/game/page5-eat-carrot', class: "carrot-img" do %>
+              <%= image_tag "carrot-no-background.png", id: "neon-carrot-image", alt: "Click here to eat carrot", class: "carrot-img"%>
             <% end %>
-            </a>
+          <% else %>
+            <%= image_tag "carrot-no-background.png", id: "neon-carrot-image", alt: "Click here to eat carrot", class: "carrot-img"%>
           <% end %>
-        <% end %>
+        <% when "Keys"%>
+          <%= image_tag "keys.png", id: "neon-carrot-image", alt: "Chocolate Bar", class: "carrot-img"%>
+        <% when "Chocolate Bar"%>
+          <%= image_tag "choc-bar-2.png", id: "neon-carrot-image", alt: "Chocolate Bar", class: "carrot-img"%>
+        <% when "T-Rex Egg"%>
+          <%= image_tag "dino.png", id: "neon-carrot-image", alt: "Dinosaur", class: "carrot-img"%>
+      <% end %>
+      <div class="dropdown dropleft">
+        <button class="navbar-button dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Pocket
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <% @pocket.each do |item| %>
+            <%= form_tag '/game/equip-item' do %>
+              <a class="dropdown-item"><%= item %>
+              <% if @equipped_item == item %>
+                - Equipped
+              <% else %>
+                <%= submit_tag "Equip", name: item %>
+              <% end %>
+              </a>
+            <% end %>
+          <% end %>
+        </div>
       </div>
-    </div>
-  <% else %>
-    <div class="nav-section">
-      <%= button_to "Log in", '/login', method: :get%>
-    </div>
-  <% end %>
+      <%= button_to current_user.username, '#', method: :get, class: "navigation-bar-username-text"%>
+    <% else %>
+      <%= link_to "Log in", '/login', class: "navbar-button" %>
+    <% end %>
+  </div>
   
+  </div>
+
 </div>

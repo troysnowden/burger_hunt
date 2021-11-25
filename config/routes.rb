@@ -12,9 +12,12 @@ Rails.application.routes.draw do
   get "/game/page6", to: "game#page6"
   get "/game/page6-bike", to: "game#page6_bike"
   get "game/win", to: "game#win"
+
   post "/game/equip-item", to: "game#equip_item"
-  post "/game/grab-keys", to: "game#grab_keys"
-  post "/game/lock-door", to: "game#lock_door"
+  get "/game/grab-keys", to: "game#grab_keys"
+  get "/game/lock-door", to: "game#lock_door"
+
+  get "/save", to: "saves#create"
 
   get "/register", to: "users#register"
   post "/register", to: "users#create"
