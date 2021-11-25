@@ -2,7 +2,9 @@
 <div class="navigation-bar nav-space-between">
 
   <div class="nav-section">
-    <%= button_to "How to play", '/how-to-play', method: :get%>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+      How to play
+    </button>  
   </div>
 
   <% if !current_page?('/') %>
