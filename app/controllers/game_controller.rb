@@ -39,7 +39,7 @@ class GameController < ApplicationController
     import_pocket
     # Look at adding these riddle messages and answers to a db, and calling a random riddle maybe?
     setup_puzzle_page("Before Mount Everest was discovered, what was the highest mountain on Earth?", "everest", 
-    "Hint! Something or other here")
+    "Hint! Rufus isn't very knowledgable when it comes to the history of mountaineering conquests, so it must be a trick question")
   end
 
   def page5
@@ -47,7 +47,7 @@ class GameController < ApplicationController
     import_pocket
     session[:bike_text] = nil
     if session[:page6_visited] == true
-      @page6_visited = true
+      flash.now[:notice] = "HINT: Have you eaten your carrots today?"
     end
 
     if session[:carrots_eaten] == 1

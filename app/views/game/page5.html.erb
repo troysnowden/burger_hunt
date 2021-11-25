@@ -10,17 +10,17 @@
   and you find yourself caught in darkness. 
   </p>
   <p>
-  Should you go left or right? If only you had something to help light up your path...
+  Which way do you go? If only you had something to help light up your path...
     <%= link_to '/game/page5-eat-carrot', class: "carrot-img" do %>
       <%= image_tag "carrot-no-background.png", id: "neon-carrot-image", alt: "Click here to eat carrot", class: "carrot-img"%>
     <% end %>
   </p>
 
-    <div class="alert">
-      <% if @page6_visited %>
-        <p>HINT: Have you eaten your carrots today?</p>
-      <% end %>
+  <% flash.each do |type, msg| %>
+    <div class ="alert">
+      <%= msg %>
     </div>
+  <% end %>
     
   <%= link_to "Left", '/game/page6', class: "page5-button" %>
   <%= link_to "Right", '/game/win', class: "page5-button carrots-0" %>
