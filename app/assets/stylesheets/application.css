@@ -33,7 +33,7 @@
   border-bottom: 3px solid black;
   text-align: left;
   color: #e32424;
-  position:absolute;
+  position: absolute;
   bottom:0;
   width:100%;
   font-size: 60%;
@@ -99,6 +99,6 @@
   font-size: 1.25rem;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  overflow: auto;
   background-color: #1e2024;
 }
