@@ -13,7 +13,7 @@
     <%= favicon_link_tag asset_path('icon.png')%>
   </head>
 
-  <% if current_page?('/') %>
+  <% if current_page?('/') ||  current_page?('/game/win') %>
     <body style="background-color:black;">
   <% else %>
     <body style="background-color: #1e2024;">
