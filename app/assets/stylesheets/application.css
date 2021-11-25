@@ -14,53 +14,42 @@
  *= require_self
  */
 
- .leave-the-house-button{
-  background-color: #e32424;
-  border: none;
-  border-radius: 4px;
-  color: white;
-  padding: 7px 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  transition-duration: 0.2s;
-  margin: 5px;
-}
-
-.leave-the-house-button:hover {
-  background-color: white;
-  color: #e32424;
-}
-
-
-.left-button {
-  background-color: #e32424;
-  padding: 1em 3em;
-  margin-left: 450px;
-}
-
-.wrong-correct-button {
-  background-color: #e32424;
-  border: none;
-  border-radius: 4px;
-  color: white;
-  padding: 7px 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  transition-duration: 0.2s;
-  margin: 5px;
-}
-
-.wrong-correct-button:hover {
-  background-color: white;
-  color: #e32424;
-}
-
 .narrator-text {
-  color: #d0e324
+  color: #f4d836;
+  font-style: italic;
+}
+
+.page-footer {
+  background-color: rgb(0, 0, 0);
+  border-bottom: 3px solid black;
+  text-align: left;
+  color: #e32424;
+  position:absolute;
+  bottom:0;
+  width:100%;
+  font-size: 60%;
+  font-weight:bold;
+ }
+
+.page-footer-icon {
+  width: 60px;
+  height: 30px;
+}
+
+.carrots-0 {
+  filter: opacity(0%)
+}
+
+.carrots-1 {
+  filter: opacity(33%)
+}
+
+.carrots-2 {
+  filter: opacity(66%)
+}
+
+.carrots-3 {
+  filter: opacity(100%)
 }
 
 body {

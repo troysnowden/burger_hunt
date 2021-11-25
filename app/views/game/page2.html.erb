@@ -1,21 +1,37 @@
 <div class="story-text">
-<p>
-As you leave your house, you suddenly remember: MY KEYS!
-</p>
+<% if !@pocket.include?("Keys")%>
+  <p>
+  As you leave your house, you suddenly remember: MY KEYS!
+  </p>
 
-<p>
-Check your pockets to make sure they're there... otherwise this is going to be a whole different kind of game.
-</p>
+  <p>
+  Check your pockets to make sure they're there... otherwise this is going to be a whole different kind of game.
+  </p>
+<% else %>
+  <p>
+  You stand idly outside your door, with a gnawing feeling that you usually do something when you step outside the house.
+  </p>
+<% end%>
+<% flash.each do |type, msg| %>
+  <div class ="alert">
+    <%= msg %>
+  </div>
+<% end %>
 
-<p>
-  The cool air hits you and you can and the scent of your hometown ‘SOMETHING’ fills your nostrils. 
-  As you recently volunteered for a medical research trial, 
-  your memory is a little hazy and can't exactly remember how to get to Big Boys Burger. You’re presented with two options: left or right.
-</p>
+<% if @door_locked %>
+  <p>
+    The cool air hits you and you can and the scent of your hometown ‘SOMETHING’ fills your nostrils. 
+    As you recently volunteered for a medical research trial, 
+    your memory is a little hazy and can't exactly remember how to get to Big Boys Burger. You’re presented with two options: left or right.
+  </p>
 
-<span>
-  <%= link_to "Left", '/game/page3', class: "button" %>
-  <%= link_to "Right", '/game/page4', class: "button" %>
-</span>
+  <span>
+    <%= link_to "Left", '/game/page3', class: "button" %>
+    <%= link_to "Right", '/game/page4', class: "button" %>
+  </span>
+<% else %>
+  <%= button_to "Lock Door", '/game/lock-door', class: "leave-the-house-button"%>
+<% end %>
+<%= link_to "Go back", '/game/page1', class: "button" %>
 
 </div>
