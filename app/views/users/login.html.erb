@@ -1,7 +1,12 @@
-<%= form_tag '/login', :id => 'name-form' do %>
+<div class="credentials-container-login"> <br>
+  <%= image_tag "icon.png", class:"icon-login-img"%> <br>
+  <%= form_tag '/login', :id => 'name-form' do %>
   <%= label_tag :username%>
   <%= text_field_tag :username %>
   <%= label_tag :password%>
   <%= password_field_tag :password%>
-  <%= submit_tag "Login"%>
+  <%= submit_tag "Log in", class: "login-button"%>
 <%end%>
+</div>
+
+

@@ -13,6 +13,8 @@ RSpec.feature "Navigation Bar: ", type: :feature do
   end
 
   scenario "players can see the pocket button if logged in" do
+    allow_any_instance_of(GameController).to receive(:autosave).and_return(true)
+    allow_any_instance_of(GameController).to receive(:get_city_name).and_return("City")
     visit ('/register')
     fill_in "user_username", with: "johnsmith"
     fill_in "user_password", with: "password"
@@ -26,6 +28,8 @@ RSpec.feature "Navigation Bar: ", type: :feature do
   end
 
   scenario "player can equip item" do
+    allow_any_instance_of(GameController).to receive(:autosave).and_return(true)
+    allow_any_instance_of(GameController).to receive(:get_city_name).and_return("City")
     visit ('/register')
     fill_in "user_username", with: "johnsmith"
     fill_in "user_password", with: "password"
@@ -40,6 +44,8 @@ RSpec.feature "Navigation Bar: ", type: :feature do
   end
 
   scenario "players can see the 'Start again' button if logged in" do
+    allow_any_instance_of(GameController).to receive(:autosave).and_return(true)
+    allow_any_instance_of(GameController).to receive(:get_city_name).and_return("City")
     visit ('/register')
     fill_in "user_username", with: "johnsmith"
     fill_in "user_password", with: "password"

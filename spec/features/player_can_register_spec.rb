@@ -9,6 +9,7 @@ RSpec.feature "Register", type: :feature do
   end
 
   scenario "Player can register to play game" do
+    allow_any_instance_of(GameController).to receive(:autosave).and_return(true)
     visit "/register"
     fill_in "user[username]", with: "user1"
     fill_in "user[password]", with: "test"
