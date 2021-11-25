@@ -47,7 +47,7 @@ class GameController < ApplicationController
     import_pocket
     session[:bike_text] = nil
     if session[:page6_visited] == true
-      @page6_visited = true
+      flash.now[:notice] = "HINT: Have you eaten your carrots today?"
     end
 
     if session[:carrots_eaten] == 1
