@@ -5,7 +5,7 @@
       How to play
     </button>  
 
-    <% if logged_in? %>
+    <% if logged_in? && !(current_page?('/') || current_page?('/register') || current_page?('/login')) %>
       <%= link_to "Start again", '/game/page1', class: "navbar-button" %>
     <% end %>
   </div>
@@ -18,9 +18,9 @@
   <% end %>
 
   <div class="nav-section">
-    <% if logged_in? %>
+    <% if logged_in? && !(current_page?('/') || current_page?('/register') || current_page?('/login'))%>
       <div class="dropdown dropleft">
-        <button class="navbar-button btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button class="navbar-button dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Pocket
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -37,10 +37,11 @@
           <% end %>
         </div>
       </div>
-      <p class="navigation-bar-username-text">Username</p>
+      <%= button_to current_user.username, '#', method: :get, class: "navigation-bar-username-text"%>
     <% else %>
       <%= link_to "Log in", '/login', class: "navbar-button" %>
     <% end %>
+  </div>
   
   </div>
 

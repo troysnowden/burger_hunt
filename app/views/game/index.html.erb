@@ -7,6 +7,17 @@
 </div>
 
 <%= image_tag "drive-thru.png", class: "landing-page-img" %>
-<%= link_to '/register', class: "landing-page-img" do %>
-  <%= image_tag "neon-arrow.png", id: "neon-arrow-image", alt: "Click here to start game", class: "landing-page-img"%>
+<% if logged_in? %>
+  <%= link_to '/game/page1', class: "landing-page-img" do %>
+    <%= image_tag "neon-arrow.png", id: "neon-arrow-image", alt: "Click here to start game", class: "landing-page-img"%>
+  <% end %>
+<% else %>
+  <%= link_to '/register', class: "landing-page-img" do %>
+    <%= image_tag "neon-arrow.png", id: "neon-arrow-image", alt: "Click here to start game", class: "landing-page-img"%>
+  <% end %>
+<% end %>
+<% if @saved_game %>
+  <%= link_to @saved_game.last_level, class: "landing-page-img" do %>
+    <%= image_tag "neon-arrow.png", id: "neon-arrow-image", alt: "Click here to load game", class: "landing-page-img"%>
+  <% end %>
 <% end %>
