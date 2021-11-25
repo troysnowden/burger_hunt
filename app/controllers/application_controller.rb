@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
     session[:equipped_item] = nil
     session[:keys_grabbed] = nil
     session[:door_locked] = nil
+    session[:current_page] = "/game/page1"
   end
 
   def current_user
