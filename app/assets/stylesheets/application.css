@@ -34,6 +34,7 @@
   width:100%;
   font-size: 60%;
   font-weight:bold;
+  border-top: 1px solid white;
  }
 
 .page-footer-icon {
@@ -57,7 +58,36 @@
   filter: opacity(100%)
 }
 
-body {
+.credentials-container-register {
+  margin: auto;
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid white;
+  width: 300px;
+  background-color: rgb(156, 208, 205);
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.credentials-container-login {
+  margin: auto;
+  padding: 50px;
+  border-radius: 5px;
+  border: 2px solid white;
+  width: 300px;
+  height: 350px;
+  background-color: rgb(156, 208, 205);
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.body {
   /* padding: 10%; */
   min-height: 100vh;
   font-family: canada-type-gibson, sans-serif;
