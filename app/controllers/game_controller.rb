@@ -158,9 +158,14 @@ class GameController < ApplicationController
   end
 
   def get_city_name
-    response = 
+    response_1 = 
     (JSON.parse HTTParty.get('http://geodb-free-service.wirefreethought.com/v1/geo/cities?limit=5&offset=0&location=53.6801-1.492', format: :plain), symbolize_names: true)[:data]
-    response[rand(response.length - 1)][:name]
+    response_2 = 
+    (JSON.parse HTTParty.get('http://geodb-free-service.wirefreethought.com/v1/geo/cities?limit=5&offset=0&location=54.977777777-1.613333333', format: :plain), symbolize_names: true)[:data]
+    response_3 = 
+    (JSON.parse HTTParty.get('http://geodb-free-service.wirefreethought.com/v1/geo/cities?limit=5&offset=0&location=53.466666666-2.233333333', format: :plain), symbolize_names: true)[:data]
+    full_response = response_1 + response_2 + response_3
+    full_response[rand(full_response.length - 1)][:name]
   end
 
 end
