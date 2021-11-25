@@ -11,10 +11,13 @@
 .page1-img {
   margin-top: 2%;
   margin-bottom: 2%;
-  height: 25%;
-  width: 25%;
+  height: 35%;
+  width: 35%;
   align-self: center;
+  float: left;
   border-radius: 2%;
+  margin-right: 7%;
+  margin-top: 4%;
 }
 
 .door-img {
