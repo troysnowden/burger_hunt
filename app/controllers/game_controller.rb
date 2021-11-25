@@ -2,7 +2,7 @@ class GameController < ApplicationController
   def page1
     session[:city] = get_city_name unless session[:city]
     session[:current_page] = request.fullpath
-    #autosave
+    autosave
     session[:pocket] = ["Chocolate Bar", "T-Rex Egg"]
     session[:equipped_item] = session[:pocket][0] unless session[:equipped_item]
     session[:incorrect_lock_item_message] = nil
@@ -16,7 +16,7 @@ class GameController < ApplicationController
   def page2
     @city_name = session[:city]
     session[:current_page] = request.fullpath
-    #autosave
+    autosave
     session[:correct_answer_found] = nil
     session[:puzzle_attempts] = 0
     if session[:incorrect_lock_item_message]
@@ -32,7 +32,7 @@ class GameController < ApplicationController
 
   def page3
     session[:current_page] = request.fullpath
-    #autosave
+    autosave
     import_pocket
     # Look at adding these riddle messages and answers to a db, and calling a random riddle maybe?
     setup_puzzle_page("What has a head and a tail, but no body or legs?", "coin",
@@ -41,11 +41,11 @@ class GameController < ApplicationController
 
   def page4
     session[:current_page] = request.fullpath
-    #autosave
+    autosave
     import_pocket
     # Look at adding these riddle messages and answers to a db, and calling a random riddle maybe?
     setup_puzzle_page("Before Mount Everest was discovered, what was the highest mountain on Earth?", "everest", 
-    "Hint! Rufus isn't very knowledgable when it comes to the history of mountaineering conquests, so it must be a trick question")
+    "Hint! Rufus isn't very knowledgeable when it comes to the history of mountaineering conquests, so it must be a trick question")
   end
 
   def page5
@@ -76,7 +76,7 @@ class GameController < ApplicationController
 
   def page6
     session[:current_page] = request.fullpath
-    #autosave
+    autosave
     import_pocket
     session[:page6_visited] = true
     if session[:bike_text] == true
@@ -162,10 +162,10 @@ class GameController < ApplicationController
     session[:pocket].push(item) unless session[:pocket].include?(item)
   end
 
-  # def autosave
-  #   find_save = Save.find_or_create_by(user_id: session[:user_id])
-  #   find_save.update_attribute(:last_level, session[:current_page]) unless find_save.last_level[-1].to_i > session[:current_page][-1].to_i
-  # end
+  def autosave
+    find_save = Save.find_or_create_by(user_id: session[:user_id])
+    find_save.update_attribute(:last_level, session[:current_page]) unless find_save.last_level[-1].to_i > session[:current_page][-1].to_i
+  end
 
   def get_city_name
     response_1 = 
