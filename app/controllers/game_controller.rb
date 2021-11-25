@@ -158,7 +158,8 @@ class GameController < ApplicationController
   end
 
   def autosave
-    Save.find_or_create_by(user_id: session[:user_id]).update_attribute(:last_level, session[:current_page])
+    find_save = Save.find_or_create_by(user_id: session[:user_id])
+    find_save.update_attribute(:last_level, session[:current_page]) unless find_save.last_level[-1].to_i > session[:current_page][-1].to_i
   end
 
 end
