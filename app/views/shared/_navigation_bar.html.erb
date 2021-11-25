@@ -11,23 +11,32 @@
     </div>
   <% end %>
 
-  <% if logged_in? %>
-    <div class="dropdown dropleft">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Pocket
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <% @pocket.each do |item| %>
-          <%= form_tag '/game/equip-item' do %>
-            <a class="dropdown-item"><%= item %>
-            <% if @equipped_item == item %>
-              - Equipped
-            <% else %>
-              <%= submit_tag "Equip", name: item %>
-            <% end %>
-            </a>
-          <% end %>
+  <% if logged_in? && !(current_page?('/') || current_page?('/register') || current_page?('/login'))%>
+    <div class="nav-section">
+      <% if @equipped_item == "Carrot" && current_page?('/game/page5')%>
+        <%= link_to '/game/page5-eat-carrot', class: "carrot-img" do %>
+          <%= image_tag "carrot-no-background.png", id: "neon-carrot-image", alt: "Click here to eat carrot", class: "carrot-img"%>
         <% end %>
+      <% elsif @equipped_item == "Carrot" %>
+        <%= image_tag "carrot-no-background.png", id: "neon-carrot-image", alt: "Click here to eat carrot", class: "carrot-img"%>
+      <% end %>
+      <div class="dropdown dropleft">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Pocket
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <% @pocket.each do |item| %>
+            <%= form_tag '/game/equip-item' do %>
+              <a class="dropdown-item"><%= item %>
+              <% if @equipped_item == item %>
+                - Equipped
+              <% else %>
+                <%= submit_tag "Equip", name: item %>
+              <% end %>
+              </a>
+            <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   <% else %>
