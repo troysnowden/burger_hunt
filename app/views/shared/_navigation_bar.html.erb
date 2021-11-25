@@ -6,7 +6,11 @@
     <% if logged_in? %>
       <%= link_to "Start again", '/game/page1', class: "navbar-button" %>
     <% end %>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+      How to play
+    </button>  
   </div>
+  
 
   <% if !current_page?('/') %>
     <div class="nav-section">
