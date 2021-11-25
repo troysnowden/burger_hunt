@@ -1,6 +1,6 @@
 class GameController < ApplicationController
   def page1
-    session[:city] = get_city_name
+    session[:city] = get_city_name unless session[:city]
     session[:current_page] = request.fullpath
     #autosave
     session[:pocket] = ["Chocolate Bar", "T-Rex Egg"]
