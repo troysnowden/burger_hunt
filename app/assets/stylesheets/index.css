@@ -25,11 +25,12 @@
 }
 
 #name-form {
-  color: #ffffff;
+  color: black;
+  font-weight: bold;
 }
 
 #name-form-label {
-  color: #ffffff;
+  color: white;
 }
 
 .landing-page-img {

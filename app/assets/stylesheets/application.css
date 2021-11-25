@@ -29,6 +29,7 @@
   width:100%;
   font-size: 60%;
   font-weight:bold;
+  border-top: 1px solid white;
  }
 
 .page-footer-icon {
@@ -54,7 +55,7 @@
 
 .credentials-container {
   margin: auto;
-  padding: 20px;
+  padding: 10px;
   border-radius: 5px;
   border: 2px solid white;
   width: 300px;
@@ -64,5 +65,4 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font: black;
 }
