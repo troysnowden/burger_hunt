@@ -27,7 +27,7 @@ RSpec.describe UsersController, type: :controller do
     it "responds with 200" do
       post :create, params: { user: { username: "jsmith", password: "pass" } }
       post :authenticate, params: { username: "jsmith", password: "pass" }
-      expect(response).to redirect_to("/game/home")
+      expect(response).to redirect_to("/")
     end
   end
 
