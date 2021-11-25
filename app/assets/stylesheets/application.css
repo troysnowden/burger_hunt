@@ -93,3 +93,18 @@
 .carrots-3 {
   filter: opacity(100%)
 }
+
+.credentials-container {
+  margin: auto;
+  padding: 20px;
+  border-radius: 5px;
+  border: 2px solid white;
+  width: 300px;
+  background-color: rgb(156, 208, 205);
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font: black;
+}
