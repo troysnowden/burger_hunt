@@ -1,11 +1,15 @@
 
-<div class="navigation-bar nav-space-between">
-
+<div class="navigation-bar nav-space-between">  
   <div class="nav-section">
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+    <button type="button" class="navbar-button" data-toggle="modal" data-target="#myModal">
       How to play
     </button>  
+
+    <% if logged_in? %>
+      <%= link_to "Start again", '/game/page1', class: "navbar-button" %>
+    <% end %>
   </div>
+  
 
   <% if !current_page?('/') %>
     <div class="nav-section">
@@ -13,29 +17,31 @@
     </div>
   <% end %>
 
-  <% if logged_in? %>
-    <div class="dropdown dropleft">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Pocket
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <% @pocket.each do |item| %>
-          <%= form_tag '/game/equip-item' do %>
-            <a class="dropdown-item"><%= item %>
-            <% if @equipped_item == item %>
-              - Equipped
-            <% else %>
-              <%= submit_tag "Equip", name: item %>
+  <div class="nav-section">
+    <% if logged_in? %>
+      <div class="dropdown dropleft">
+        <button class="navbar-button btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Pocket
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <% @pocket.each do |item| %>
+            <%= form_tag '/game/equip-item' do %>
+              <a class="dropdown-item"><%= item %>
+              <% if @equipped_item == item %>
+                - Equipped
+              <% else %>
+                <%= submit_tag "Equip", name: item %>
+              <% end %>
+              </a>
             <% end %>
-            </a>
           <% end %>
-        <% end %>
+        </div>
       </div>
-    </div>
-  <% else %>
-    <div class="nav-section">
-      <%= button_to "Log in", '/login', method: :get%>
-    </div>
-  <% end %>
+      <p class="navigation-bar-username-text">Username</p>
+    <% else %>
+      <%= link_to "Log in", '/login', class: "navbar-button" %>
+    <% end %>
   
+  </div>
+
 </div>

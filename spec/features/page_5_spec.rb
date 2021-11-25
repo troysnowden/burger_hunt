@@ -22,7 +22,7 @@ RSpec.feature "Page 5: ", type: :feature do
     expect(page).not_to have_text 'HINT' 
     click_link 'Left'
     expect(page).to have_current_path '/game/page6'
-    click_link 'Go back'
+    click_link 'Go Back'
     expect(page).to have_current_path '/game/page5'
     expect(page).to have_text 'HINT'
   end
