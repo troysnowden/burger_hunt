@@ -13,6 +13,7 @@ class GameController < ApplicationController
   end
 
   def page2
+    @city_name = session[:city]
     session[:current_page] = request.fullpath
     session[:correct_answer_found] = nil
     session[:puzzle_attempts] = 0
