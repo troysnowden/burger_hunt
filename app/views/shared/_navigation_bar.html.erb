@@ -55,7 +55,7 @@
       </div>
     <% end %>
     <% if logged_in? %>
-      <%= button_to current_user.username, '#', method: :get, class: "navigation-bar-username-text"%>
+      <%= button_to current_user.username, '/logout', method: :get, class: "navigation-bar-username-text"%>
     <% else %>
       <%= link_to "Log in", '/login', class: "navbar-button" %>
     <% end %>
