@@ -1,11 +1,12 @@
 <div class="story-text">
+<%= image_tag "rufus.png", id: "rufus-img", alt: "Man waving", class: "rufus-img"%>
+<BR CLEAR=”left” />
   <% if !@correct_answer_found %>
     <p>You run into your old pal Rufus. This guy loves to talk and you really don't have time for his
     nonsense right now. After exchanging pleasantries for what felt like an eternity you try to squeeze
     past him but he not so subtly blocks your way.</p>
 
     <p><i>'I'll let you on your way if you can solve this riddle'</i></p>
-
     <p>Reluctantly you agree.</p>
       <p>'<%= @puzzle_text %>'</p>
     <% flash.each do |type, msg| %>
@@ -16,7 +17,7 @@
     <%= form_tag '/game/puzzle-answer', :class => 'puzzle-form', :id => 'puzzle-form' do %>
       <%= label_tag :puzzle_answer%><br>
       <%= text_field_tag :puzzle_answer_input %><br>
-      <%= submit_tag "Submit Answer"%>
+      <%= submit_tag "Submit Answer", class: "navbar-button"%>
     <%end%>
 
   <% else %>

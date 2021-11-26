@@ -34,12 +34,6 @@
   color: white;
 }
 
-.landing-page-img {
-  height: 30%;
-  width: 30%;
-  align-self: center;
-}
-
 .puzzle-form {
   padding-top: 5%;
   padding-bottom: 5%;
@@ -58,6 +52,8 @@ a.button {
   background-color: #f4d836;
   color: #000000;
   border: 2.5px white;
+  margin-left: 25%;
+  
 }
 
 body {
