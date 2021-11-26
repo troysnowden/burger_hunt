@@ -15,11 +15,10 @@
 
 .story-text {
   color: #ffffff;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size: 150%;
+  font-family: 'courier new', Arial, sans-serif;
   padding-left: 10%;
   padding-right: 10%;
-  font-size: 150%;
+  font-size: large;
 }
 
 .landing_screen_button {
@@ -65,7 +64,7 @@ body {
   font-size: 1.25rem;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  overflow: auto;
   background-color: #1e2024;
 }
 
