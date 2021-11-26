@@ -16,8 +16,10 @@
 .story-text {
   color: #ffffff;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 150%;
   padding-left: 10%;
   padding-right: 10%;
+  font-size: 150%;
 }
 
 .landing_screen_button {
@@ -31,12 +33,6 @@
 
 #name-form-label {
   color: white;
-}
-
-.landing-page-img {
-  height: 30%;
-  width: 30%;
-  align-self: center;
 }
 
 .puzzle-form {
@@ -57,6 +53,8 @@ a.button {
   background-color: #f4d836;
   color: #000000;
   border: 2.5px white;
+  margin-left: 25%;
+  
 }
 
 body {
