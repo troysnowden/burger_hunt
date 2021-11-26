@@ -19,6 +19,7 @@
   font-size: 150%;
   padding-left: 10%;
   padding-right: 10%;
+  font-size: 150%;
 }
 
 .landing_screen_button {
@@ -52,6 +53,8 @@ a.button {
   background-color: #f4d836;
   color: #000000;
   border: 2.5px white;
+  margin-left: 25%;
+  
 }
 
 body {
