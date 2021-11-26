@@ -5,6 +5,11 @@ To enable sound on Safari:
  - Autoplay must be enabled - Safari -> Settings for this Website -> Autoplay: Allow All Auto-Play
 
 # App startup
+## Installing all gems
+Run:
+```
+bundle install
+```
 ## Database setup commands
 When using the app for the first time the databases will need configuring. The simplist command to run is:
 ```
