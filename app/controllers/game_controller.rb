@@ -1,5 +1,6 @@
 class GameController < ApplicationController
   def page1
+    redirect_to "/" unless logged_in?
     session[:city] = get_city_name unless session[:city]
     session[:current_page] = request.fullpath
     session[:pocket] = ["Chocolate Bar", "T-Rex Egg"]
@@ -13,6 +14,7 @@ class GameController < ApplicationController
   end
 
   def page2
+    redirect_to "/" unless logged_in?
     @city_name = session[:city]
     session[:current_page] = request.fullpath
     autosave
@@ -30,6 +32,7 @@ class GameController < ApplicationController
   end
 
   def page3
+    redirect_to "/" unless logged_in?
     session[:current_page] = request.fullpath
     autosave
     import_pocket
@@ -39,6 +42,7 @@ class GameController < ApplicationController
   end
 
   def page4
+    redirect_to "/" unless logged_in?
     session[:current_page] = request.fullpath
     autosave
     import_pocket
@@ -48,6 +52,7 @@ class GameController < ApplicationController
   end
 
   def page5
+    redirect_to "/" unless logged_in?
     session[:current_page] = request.fullpath
     autosave
     import_pocket
@@ -74,6 +79,7 @@ class GameController < ApplicationController
   end
 
   def page6
+    redirect_to "/" unless logged_in?
     session[:current_page] = request.fullpath
     autosave
     import_pocket
@@ -115,11 +121,13 @@ class GameController < ApplicationController
   end
 
   def grab_keys
+    redirect_to "/" unless logged_in?
     session[:keys_grabbed] = true
     redirect_to "/game/page1"
   end
 
   def lock_door
+    redirect_to "/" unless logged_in?
     if session[:equipped_item] != "Keys"
       session[:incorrect_lock_item_message] = "You tried, unsuccessfully, to lock your door with a #{session[:equipped_item]}"
     else
@@ -130,6 +138,7 @@ class GameController < ApplicationController
   end
 
   def win
+    redirect_to "/" unless logged_in?
     import_pocket
   end
 
