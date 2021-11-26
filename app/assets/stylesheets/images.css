@@ -8,6 +8,22 @@
   width: 55%;
 }
 
+.landing-page-img {
+  height: 30%;
+  width: 30%;
+  border-radius: 2%;
+  margin-top: 10px;
+  margin-left: 35%;
+}
+
+.keep-going-img {
+  height: 30%;
+  width: 30%;
+  border-radius: 2%;
+  margin-top: 10px;
+  margin-left: 35%;
+}
+
 .page1-img {
   margin-top: 2%;
   margin-bottom: 2%;
