@@ -54,7 +54,13 @@ a.button {
   color: #000000;
   border: 2.5px white;
   margin-left: 25%;
-  
+}
+
+.alert-page5 {
+  background-color: #f4d836;
+  color: #000000;
+  border: 2.5px white;
+  margin-left: 36%;
 }
 
 body {
